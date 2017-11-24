@@ -3,7 +3,9 @@ package nrdzs.cs465.illinois.edu.spot;
 import android.app.Activity;
 import android.os.Bundle;
 
-public class DetailedPhotoActivity extends Activity {
+import nrdzs.cs465.illinois.edu.spot.R;
+
+public class DetailedPhotoActivity extends CustomActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

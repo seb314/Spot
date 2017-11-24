@@ -1,0 +1,34 @@
+<<<<<<< HEAD
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="nrdzs.cs465.illinois.edu.spot.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <!-- this is just to show the image view -->
+        <ImageView
+            android:id="@+id/image_taken"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- this is the camera button -->
+        <Button
+            android:id="@+id/camera_button"
+            android:text="@string/icon_camera"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/rounded_button"
+            />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
+>>>>>>> 3304203911363c3783611c527ead947a1bc94d48

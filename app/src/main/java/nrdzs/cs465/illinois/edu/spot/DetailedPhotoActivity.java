@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -40,6 +41,15 @@ public class DetailedPhotoActivity extends FragmentActivity {
 
         Common.setupCameraButton(this);
         Common.setupBackButton(this);
+
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        try
+        {
+            this.getActionBar().hide();
+        }
+        catch (NullPointerException e){}
 
 
     }

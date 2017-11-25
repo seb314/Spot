@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Spot</string>
     <string name="icon_camera">&#xf030;</string>
+    <string name="icon_bug">&#xf188;</string>
 </resources>

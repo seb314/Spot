@@ -35,7 +35,22 @@ public class MainActivity extends CustomActivity {
 
         // bind an imageview so we could see the taken picture
         mImageView = (ImageView) findViewById(R.id.image_taken);
+
+        // TODO remove this block once the correct link to detailed image view exists
+        Button button_go_to_detailed_image_view =
+                (Button) findViewById(R.id.shortcut_to_detailed_photo_screen_button);
+        button_go_to_detailed_image_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launch_detailed_photo_activity(v);
+            }
+        });
+        button_go_to_detailed_image_view.setTypeface(mFontAwesomeTypeface);
     }
+
+
+
+
 
 
 }

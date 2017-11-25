@@ -100,4 +100,9 @@ public class CustomActivity extends Activity {
         }
     }
 
+    protected void launch_detailed_photo_activity(View view) {
+        Intent intent = new Intent(this, DetailedPhotoActivity.class);
+        startActivity(intent);
+    }
+
 }

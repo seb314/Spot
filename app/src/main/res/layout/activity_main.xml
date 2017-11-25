@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,27 +6,158 @@
     android:layout_height="match_parent"
     tools:context="nrdzs.cs465.illinois.edu.spot.MainActivity">
 
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginBottom="30dp"
+            tools:context="nrdzs.cs465.illinois.edu.spot.MainActivity">
+
+            <!--Spott Logo-->
+             <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:contentDescription="Spott Logo"
+                android:src="@drawable/logo" />
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:background="#f4f4f4" >
+
+                <ExpandableListView
+                    android:id="@+id/lvExp"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"/>
+
+            </LinearLayout>
+
+
+
+            <!--List View of Libraries
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/MainScreenLibraries"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Grainger" />
+
+                <TextView
+                    style="@style/MainScreenLibraries"
+                    android:textStyle="italic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="Open 24 Hours"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/MainScreenLibraries"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="UGL" />
+
+                <TextView
+                    style="@style/MainScreenLibraries"
+                    android:textStyle="italic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="10am - 9pm"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/MainScreenLibraries"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Main Library" />
+
+                <TextView
+                    style="@style/MainScreenLibraries"
+                    android:textStyle="italic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="8:30am - 6pm"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/MainScreenLibraries"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="ACES" />
+
+                <TextView
+                    style="@style/MainScreenLibraries"
+                    android:textStyle="italic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="8:30am - 9pm"/>
+            </RelativeLayout>  -->
+        </LinearLayout>
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:gravity="top|end">
 
         <!-- this is just to show the image view -->
         <ImageView
             android:id="@+id/image_taken"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:contentDescription="Camera Icon" />
 
         <!-- this is the camera button -->
         <Button
             android:id="@+id/camera_button"
-            android:text="@string/icon_camera"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/rounded_button"
-            />
+            android:text="@string/icon_camera" />
 
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
->>>>>>> 3304203911363c3783611c527ead947a1bc94d48
+

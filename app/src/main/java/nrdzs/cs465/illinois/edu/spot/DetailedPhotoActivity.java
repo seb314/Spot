@@ -1,5 +1,6 @@
 package nrdzs.cs465.illinois.edu.spot;
 
+import android.graphics.Typeface;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import nrdzs.cs465.illinois.edu.spot.R;
@@ -19,6 +21,9 @@ public class DetailedPhotoActivity extends FragmentActivity {
     // representing an object in the collection.
     DemoCollectionPagerAdapter mDemoCollectionPagerAdapter;
     ViewPager mViewPager;
+    Button cameraButton;
+
+
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +36,12 @@ public class DetailedPhotoActivity extends FragmentActivity {
                         getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.detailed_photo_pager);
         mViewPager.setAdapter(mDemoCollectionPagerAdapter);
+
+
+        Common.setupCameraButton(this);
+        Common.setupBackButton(this);
+
+
     }
 }
 

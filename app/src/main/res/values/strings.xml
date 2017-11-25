@@ -2,4 +2,7 @@
     <string name="app_name">Spot</string>
     <string name="icon_camera">&#xf030;</string>
     <string name="icon_bug">&#xf188;</string>
+    <string name="icon_arrow_left">&#xf053;</string>
+    <string name="icon_arrow_right">&#xf054;</string>
+    <string name="icon_back">&#xf0d9;</string>
 </resources>

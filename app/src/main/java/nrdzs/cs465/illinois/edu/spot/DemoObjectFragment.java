@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.github.chrisbanes.photoview.PhotoView;
 
@@ -20,7 +19,7 @@ public class DemoObjectFragment extends Fragment {
         // The last two arguments ensure LayoutParams are inflated
         // properly.
         View rootView = inflater.inflate(
-                R.layout.activity_detailed_photo_frame, container, false);
+                R.layout.fragment_detailed_photo_frame, container, false);
 
 
         Bundle args = getArguments();

@@ -24,7 +24,7 @@ public class DemoCollectionPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 100;
+        return 3;
     }
 
     @Override

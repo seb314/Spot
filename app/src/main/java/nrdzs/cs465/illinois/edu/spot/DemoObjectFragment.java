@@ -2,6 +2,7 @@ package nrdzs.cs465.illinois.edu.spot;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,10 +29,19 @@ public class DemoObjectFragment extends Fragment {
 
         PhotoView photoView = (PhotoView) rootView.findViewById(R.id.detailed_photo_view);
 
-        if(photo_index % 2 ==0) {
-            photoView.setImageResource(R.drawable.grainger_image_1);
-        } else {
-            photoView.setImageResource(R.drawable.grainger_image_2);
+        switch (photo_index) {
+            case 1:
+                photoView.setImageResource(R.drawable.grainger_image_1);
+                break;
+            case 2:
+                photoView.setImageResource(R.drawable.grainger_image_2);
+                break;
+            case 3:
+                photoView.setImageResource(R.drawable.grainger_image_3);
+                break;
+            default:
+                Log.d("debug","number of hardcoded detailed photos inconsistent:"+photo_index);
+                photoView.setImageResource(R.drawable.grainger_image_1);
 
         }
 

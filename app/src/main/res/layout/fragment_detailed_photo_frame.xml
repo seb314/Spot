@@ -7,11 +7,10 @@
     tools:context="nrdzs.cs465.illinois.edu.spot.DetailedPhotoActivity">
     >
 
-    <!-- for details see https://github.com/chrisbanes/PhotoView -->
-    <com.github.chrisbanes.photoview.PhotoView
+    <!-- for details see https://github.com/davemorrissey/subsampling-scale-image-view/blob/master/README.md -->
+    <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
         android:id="@+id/detailed_photo_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"/>
+        android:layout_height="match_parent"/>
 
 </android.support.constraint.ConstraintLayout>

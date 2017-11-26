@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.davemorrissey.labs.subscaleview.ImageSource;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.github.chrisbanes.photoview.PhotoView;
 
 // Instances of this class are fragments representing a single
@@ -27,23 +29,26 @@ public class DemoObjectFragment extends Fragment {
         int photo_index = args.getInt(ARG_OBJECT);
 
 
-        PhotoView photoView = (PhotoView) rootView.findViewById(R.id.detailed_photo_view);
+        SubsamplingScaleImageView photoView =
+                (SubsamplingScaleImageView) rootView.findViewById(R.id.detailed_photo_view);
 
         switch (photo_index) {
             case 1:
-                photoView.setImageResource(R.drawable.grainger_image_1);
+                photoView.setImage(ImageSource.resource(R.drawable.grainger_image_1));
                 break;
             case 2:
-                photoView.setImageResource(R.drawable.grainger_image_2);
+                photoView.setImage(ImageSource.resource(R.drawable.grainger_image_2));
                 break;
             case 3:
-                photoView.setImageResource(R.drawable.grainger_image_3);
+                photoView.setImage(ImageSource.resource(R.drawable.grainger_image_3));
                 break;
             default:
                 Log.d("debug","number of hardcoded detailed photos inconsistent:"+photo_index);
-                photoView.setImageResource(R.drawable.grainger_image_1);
+                photoView.setImage(ImageSource.resource(R.drawable.grainger_image_1));
 
         }
+
+        photoView.setMinimumScaleType(SubsamplingScaleImageView.SCALE_TYPE_CENTER_CROP);
 
         return rootView;
     }

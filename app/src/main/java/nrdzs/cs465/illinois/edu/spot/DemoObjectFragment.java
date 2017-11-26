@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
@@ -49,6 +50,9 @@ public class DemoObjectFragment extends Fragment {
         }
 
         photoView.setMinimumScaleType(SubsamplingScaleImageView.SCALE_TYPE_CENTER_CROP);
+
+        TextView title = (TextView) rootView.findViewById(R.id.photo_detail_title);
+        title.setText("Title of photo "+photo_index);
 
         return rootView;
     }

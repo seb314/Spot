@@ -26,38 +26,23 @@ public class Common {
     public static final int REQUEST_TAKE_PHOTO = 1;
 
 
+    public static void setupButton(final Activity parentActivity, int id, View.OnClickListener onClickListener){
+        Button b = (Button) parentActivity.findViewById(id);
+        b.setOnClickListener(onClickListener);
+
+        Typeface mFontAwesomeTypeface = Typeface.createFromAsset( parentActivity.getAssets(), "fontawesome-webfont.ttf" );
+        b.setTypeface(mFontAwesomeTypeface);    // set to use font awesome
+    }
 
 
     static public void setupCameraButton(final Activity a){
-        Button cameraButton = (Button) a.findViewById(R.id.camera_button);
-        cameraButton.setOnClickListener(new View.OnClickListener() {
+        setupButton(a, R.id.camera_button, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dispatchTakePictureIntent(a);
             }
         });
-
-        Typeface mFontAwesomeTypeface = Typeface.createFromAsset( a.getAssets(), "fontawesome-webfont.ttf" );
-
-
-        cameraButton.setTypeface(mFontAwesomeTypeface);    // set to use font awesome
     }
-
-    static public void setupBackButton(final Activity a){
-        Button cameraButton = (Button) a.findViewById(R.id.back_button);
-        cameraButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                a.finish();
-            }
-        });
-
-        Typeface mFontAwesomeTypeface = Typeface.createFromAsset( a.getAssets(), "fontawesome-webfont.ttf" );
-
-
-        cameraButton.setTypeface(mFontAwesomeTypeface);    // set to use font awesome
-    }
-
 
     static protected void dispatchTakePictureIntent(Activity a) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

@@ -1,5 +1,6 @@
 package nrdzs.cs465.illinois.edu.spot;
 
+import android.app.Activity;
 import android.graphics.Typeface;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
@@ -40,7 +41,10 @@ public class DetailedPhotoActivity extends FragmentActivity {
 
 
         Common.setupCameraButton(this);
-        Common.setupBackButton(this);
+        setupBackButton();
+        setupNextPhotoButton();
+        setupPrevPhotoButton();
+
 
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -52,6 +56,35 @@ public class DetailedPhotoActivity extends FragmentActivity {
         catch (NullPointerException e){}
 
 
+    }
+
+    private void setupBackButton(){
+        Common.setupButton(this, R.id.back_button, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
+    private void setupNextPhotoButton(){
+        Common.setupButton(this, R.id.next_button, new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1, true); //getItem(-1) for previous
+            }
+        });
+    }
+
+    private void setupPrevPhotoButton(){
+        Common.setupButton(this, R.id.prev_button, new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1, true); //getItem(-1) for previous
+            }
+        });
     }
 }
 

@@ -38,5 +38,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <Button
+        android:id="@+id/next_button"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:background="#00ffffff"
+
+        android:text="@string/icon_arrow_right"
+        android:textSize="50dp"
+        android:textColor="#80000000"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/prev_button"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:background="#00ffffff"
+        android:text="@string/icon_arrow_left"
+        android:textSize="50dp"
+        android:textColor="#80000000"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

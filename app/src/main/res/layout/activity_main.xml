@@ -1,140 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="nrdzs.cs465.illinois.edu.spot.MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="0dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginBottom="30dp"
+        tools:context="nrdzs.cs465.illinois.edu.spot.MainActivity">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <!--Spott Logo-->
+         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:layout_marginBottom="30dp"
-            tools:context="nrdzs.cs465.illinois.edu.spot.MainActivity">
+            android:contentDescription="Spott Logo"
+            android:src="@drawable/condensed_logo" />
 
-            <!--Spott Logo-->
-             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="300dp"
-                android:contentDescription="Spott Logo"
-                android:src="@drawable/logo" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="@string/msSelectLibrary"
+            android:textStyle="italic"
+            android:textColor="#000"
+            android:layout_marginBottom="15dp"/>
 
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="vertical"
-                android:background="#f4f4f4" >
+        <!-- List of UIUC Libraries -->
+        <ExpandableListView
+            android:id="@+id/lvExp"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:groupIndicator="@null"/>
 
-                <ExpandableListView
-                    android:id="@+id/lvExp"
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"/>
-
-            </LinearLayout>
+    </LinearLayout>
 
 
-
-            <!--List View of Libraries
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/border"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/MainScreenLibraries"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:text="Grainger" />
-
-                <TextView
-                    style="@style/MainScreenLibraries"
-                    android:textStyle="italic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="Open 24 Hours"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/border"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/MainScreenLibraries"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:text="UGL" />
-
-                <TextView
-                    style="@style/MainScreenLibraries"
-                    android:textStyle="italic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="10am - 9pm"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/border"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/MainScreenLibraries"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:text="Main Library" />
-
-                <TextView
-                    style="@style/MainScreenLibraries"
-                    android:textStyle="italic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="8:30am - 6pm"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/border"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/MainScreenLibraries"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:text="ACES" />
-
-                <TextView
-                    style="@style/MainScreenLibraries"
-                    android:textStyle="italic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="8:30am - 9pm"/>
-            </RelativeLayout>  -->
-        </LinearLayout>
-
-
+    <!-- Floating Camera Button -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -152,10 +61,11 @@
             android:id="@+id/camera_button"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/rounded_button"
-            android:text="@string/icon_camera" />
+            android:text="@string/icon_camera"
+            android:textColor="#fff"/>
 
     </RelativeLayout>
 

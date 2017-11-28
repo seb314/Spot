@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import java.io.File;
@@ -92,5 +93,15 @@ public class Common {
     public static void launch_detailed_photo_activity(Activity parent) {
         Intent intent = new Intent(parent, DetailedPhotoActivity.class);
         parent.startActivity(intent);
+    }
+
+    public static void makeFullScreen(Activity parent){
+            parent.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        try
+        {
+            parent.getActionBar().hide();
+        }
+        catch (NullPointerException e){}
     }
 }

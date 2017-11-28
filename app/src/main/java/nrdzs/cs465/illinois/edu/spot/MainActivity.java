@@ -36,6 +36,7 @@ public class MainActivity extends CustomActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // example for binding the camera button to the dispatch picture intent
         mCameraButton = (Button) findViewById(R.id.camera_button);
         mCameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,8 +44,9 @@ public class MainActivity extends CustomActivity {
                 dispatchTakePictureIntent();
             }
         });
-        mCameraButton.setTypeface(mFontAwesomeTypeface);
+        mCameraButton.setTypeface(mFontAwesomeTypeface);    // set to use font awesome
 
+        // bind an imageview so we could see the taken picture
         mImageView = (ImageView) findViewById(R.id.image_taken);
 
         startGallery();

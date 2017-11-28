@@ -65,33 +65,33 @@ public class ConfirmPhotoLocationActivity extends CustomActivity
         if(butt_id == R.id.left_butt) {
             if (checked) {
                 left_butt.setButtonDrawable(R.drawable.left_side_checked);
-                center_butt.setButtonDrawable(R.drawable.center_side);
-                right_butt.setButtonDrawable(R.drawable.right_side);
+                center_butt.setButtonDrawable(R.drawable.left_side);
+                right_butt.setButtonDrawable(R.drawable.left_side);
 
             } else {
                 left_butt.setButtonDrawable(R.drawable.left_side);
-                center_butt.setButtonDrawable(R.drawable.center_side);
-                right_butt.setButtonDrawable(R.drawable.right_side);
+                center_butt.setButtonDrawable(R.drawable.left_side);
+                right_butt.setButtonDrawable(R.drawable.left_side);
             }
         } else if (butt_id == R.id.center_butt) {
             if (checked) {
                 left_butt.setButtonDrawable(R.drawable.left_side);
-                center_butt.setButtonDrawable(R.drawable.center_side_checked);
-                right_butt.setButtonDrawable(R.drawable.right_side);
+                center_butt.setButtonDrawable(R.drawable.left_side_checked);
+                right_butt.setButtonDrawable(R.drawable.left_side);
             } else {
                 left_butt.setButtonDrawable(R.drawable.left_side);
-                center_butt.setButtonDrawable(R.drawable.center_side);
-                right_butt.setButtonDrawable(R.drawable.right_side);
+                center_butt.setButtonDrawable(R.drawable.left_side);
+                right_butt.setButtonDrawable(R.drawable.left_side);
             }
         } else if (butt_id == R.id.right_butt) {
             if (checked) {
                 left_butt.setButtonDrawable(R.drawable.left_side);
-                center_butt.setButtonDrawable(R.drawable.center_side);
-                right_butt.setButtonDrawable(R.drawable.right_side_checked);
+                center_butt.setButtonDrawable(R.drawable.left_side);
+                right_butt.setButtonDrawable(R.drawable.left_side_checked);
             } else {
                 left_butt.setButtonDrawable(R.drawable.left_side);
-                center_butt.setButtonDrawable(R.drawable.center_side);
-                right_butt.setButtonDrawable(R.drawable.right_side);
+                center_butt.setButtonDrawable(R.drawable.left_side);
+                right_butt.setButtonDrawable(R.drawable.left_side);
             }
         }
     }

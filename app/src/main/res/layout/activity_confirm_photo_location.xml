@@ -29,10 +29,17 @@
             android:text="@string/floor_place_text"
             android:layout_below="@id/floor_spinner"
             android:textSize="18sp"/>
+        <ImageView
+            android:id="@+id/background_img"
+            android:contentDescription="@string/floor_place_text"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/floorplan"
+            android:layout_below="@id/floor_place_text" />
         <RadioGroup
             android:id="@+id/floor_radio"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_below="@id/floor_place_text"
             android:orientation="horizontal"
             android:gravity="center">
@@ -47,14 +54,14 @@
                 android:id="@+id/center_butt"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:button="@drawable/center_side"
+                android:button="@drawable/left_side"
                 android:layout_weight="1"
                 android:onClick="onButtTouched"/>
             <RadioButton
                 android:id="@+id/right_butt"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:button="@drawable/right_side"
+                android:button="@drawable/left_side"
                 android:layout_weight="1"
                 android:onClick="onButtTouched"/>
         </RadioGroup>

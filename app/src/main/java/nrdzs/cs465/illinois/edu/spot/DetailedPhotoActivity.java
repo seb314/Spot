@@ -35,17 +35,7 @@ public class DetailedPhotoActivity extends FragmentActivity {
         setupNextPhotoButton();
         setupPrevPhotoButton();
 
-
-
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        try
-        {
-            this.getActionBar().hide();
-        }
-        catch (NullPointerException e){}
-
-
+        Common.makeFullScreen(this);
     }
 
     private void setupBackButton(){

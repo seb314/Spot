@@ -7,17 +7,17 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 // Since this is an object collection, use a FragmentStatePagerAdapter,
 // and NOT a FragmentPagerAdapter.
-public class DemoCollectionPagerAdapter extends FragmentStatePagerAdapter {
-    public DemoCollectionPagerAdapter(FragmentManager fm) {
+public class DetailedPhotoPagerAdapter extends FragmentStatePagerAdapter {
+    public DetailedPhotoPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
     @Override
     public Fragment getItem(int i) {
-        Fragment fragment = new DemoObjectFragment();
+        Fragment fragment = new DetailedPhotoFragment();
         Bundle args = new Bundle();
         // Our object is just an integer :-P
-        args.putInt(DemoObjectFragment.ARG_OBJECT, i + 1);
+        args.putInt(DetailedPhotoFragment.ARG_OBJECT, i + 1);
         fragment.setArguments(args);
         return fragment;
     }

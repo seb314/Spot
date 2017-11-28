@@ -14,7 +14,7 @@ import com.github.chrisbanes.photoview.PhotoView;
 
 // Instances of this class are fragments representing a single
 // object in our collection.
-public class DemoObjectFragment extends Fragment {
+public class DetailedPhotoFragment extends Fragment {
     public static final String ARG_OBJECT = "index";
 
     @Override

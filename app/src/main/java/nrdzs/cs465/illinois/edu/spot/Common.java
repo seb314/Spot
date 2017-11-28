@@ -17,6 +17,11 @@ import java.util.Date;
 
 /**
  * Created by sebastian on 24.11.17.
+ *
+ * Put code here that is needed by multiple activities.  Having it in the base class CustomActivity
+ * does not work because extending CustomActivity is impossible if one needs to extend another
+ * base class too
+ *
  */
 
 public class Common {
@@ -44,6 +49,8 @@ public class Common {
         });
     }
 
+    // TODO this is currently code duplication with the (main?) activity class.
+    // However, multiple activities need it, so its better here than there
     static protected void dispatchTakePictureIntent(Activity a) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Ensure that there's a camera activity to handle the intent

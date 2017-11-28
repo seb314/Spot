@@ -18,4 +18,8 @@
     <string name="lawHours">9am - 10pm</string>
     <string name="commHours">8am - 11pm</string>
 
+    <string name="icon_bug">&#xf188;</string>
+    <string name="icon_arrow_left">&#xf053;</string>
+    <string name="icon_arrow_right">&#xf054;</string>
+    <string name="icon_back">&#xf0d9;</string>
 </resources>

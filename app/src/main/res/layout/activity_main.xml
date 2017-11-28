@@ -67,6 +67,7 @@
             android:text="@string/icon_camera"
             android:textColor="#fff"/>
 
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -99,5 +99,4 @@ public class CustomActivity extends Activity {
             }
         }
     }
-
 }

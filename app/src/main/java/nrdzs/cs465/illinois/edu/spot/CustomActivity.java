@@ -98,5 +98,8 @@ public class CustomActivity extends Activity {
                 e.printStackTrace();
             }
         }
+
+        Intent launchConfirmPhoto = new Intent(this, ConfirmPhotoLocationActivity.class);
+        startActivity(launchConfirmPhoto);
     }
 }

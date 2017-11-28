@@ -11,6 +11,9 @@
         <item>2nd Floor</item>
         <item>3rd Floor</item>
     </string-array>
+    <string name="select_floor">Which floor was this photo taken on?</string>
+    <string name="floor_place_text">Where on the floor was this photo taken?</string>
+    
     <string name="icon_capacity">&#xf0c0;</string>
     <string name="icon_right_arrow">&#xf054;</string>
     <string name="icon_no_volume">&#xf026;</string>

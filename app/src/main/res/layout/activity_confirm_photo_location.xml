@@ -26,21 +26,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:button="@drawable/left_side"
-                android:layout_weight="1"
                 android:onClick="onButtTouched"/>
             <RadioButton
                 android:id="@+id/center_butt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:button="@drawable/center_side"
-                android:layout_weight="1"
                 android:onClick="onButtTouched"/>
             <RadioButton
                 android:id="@+id/right_butt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:button="@drawable/right_side"
-                android:layout_weight="1"
                 android:onClick="onButtTouched"/>
         </RadioGroup>
         <Button

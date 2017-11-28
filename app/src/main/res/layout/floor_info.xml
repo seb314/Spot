@@ -19,8 +19,7 @@
         style="@style/floorInfoIcons"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_toStartOf="@+id/capacity_icon"
-        android:fontFamily="@font/fontawesome"/>
+        android:layout_toStartOf="@+id/capacity_icon"/>
 
     <TextView
         android:id="@+id/capacity_icon"
@@ -28,8 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_toStartOf="@id/floor_info_arrow"
-        android:text="@string/icon_capacity"
-        android:fontFamily="@font/fontawesome"/>
+        android:text="@string/icon_capacity"/>
 
     <TextView
         android:id="@+id/floor_info_arrow"
@@ -38,7 +36,6 @@
         android:layout_height="50dp"
         android:layout_marginEnd="15dp"
         android:layout_alignParentEnd="true"
-        android:text="@string/icon_right_arrow"
-        android:fontFamily="@font/fontawesome"/>
+        android:text="@string/icon_right_arrow"/>
 
 </RelativeLayout>

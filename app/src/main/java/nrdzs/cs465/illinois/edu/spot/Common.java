@@ -88,4 +88,9 @@ public class Common {
         // Save a file: path for use with ACTION_VIEW intents
         return image;
     }
+
+    public static void launch_detailed_photo_activity(Activity parent) {
+        Intent intent = new Intent(parent, DetailedPhotoActivity.class);
+        parent.startActivity(intent);
+    }
 }

@@ -9,6 +9,9 @@ import nrdzs.cs465.illinois.edu.spot.R;
 
 public class FloorAndPhotoActivity extends CustomActivity {
 
+    Activity this_alias = this; // aarrg sry, I can't simply use 'this' in the onlicklistener
+    // because that points just to the onclicklistener
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +23,7 @@ public class FloorAndPhotoActivity extends CustomActivity {
         button_go_to_detailed_image_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                launch_detailed_photo_activity(v);
+                Common.launch_detailed_photo_activity(this_alias);
             }
         });
         button_go_to_detailed_image_view.setTypeface(mFontAwesomeTypeface);

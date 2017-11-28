@@ -25,32 +25,33 @@ public class DetailedPhotoFragment extends Fragment {
         View rootView = inflater.inflate(
                 R.layout.fragment_detailed_photo_frame, container, false);
 
-
-        Bundle args = getArguments();
-        int photo_index = args.getInt(ARG_OBJECT);
-
-
         SubsamplingScaleImageView photoView =
                 (SubsamplingScaleImageView) rootView.findViewById(R.id.detailed_photo_view);
 
+        int imageResource;
+        Bundle args = getArguments();
+        int photo_index = args.getInt(ARG_OBJECT);
         switch (photo_index) {
             case 1:
-                photoView.setImage(ImageSource.resource(R.drawable.grainger_image_1));
+                imageResource = R.drawable.grainger_image_1;
                 break;
             case 2:
-                photoView.setImage(ImageSource.resource(R.drawable.grainger_image_2));
+                imageResource = R.drawable.grainger_image_2;
                 break;
             case 3:
-                photoView.setImage(ImageSource.resource(R.drawable.grainger_image_3));
+                imageResource = R.drawable.grainger_image_3;
                 break;
             default:
                 Log.d("debug","number of hardcoded detailed photos inconsistent:"+photo_index);
-                photoView.setImage(ImageSource.resource(R.drawable.grainger_image_1));
+                imageResource = R.drawable.grainger_image_1;
 
         }
 
+        photoView.setImage(ImageSource.resource(imageResource));
+
         photoView.setMinimumScaleType(SubsamplingScaleImageView.SCALE_TYPE_CENTER_CROP);
 
+        //TODO set real tile once we have real photos
         TextView title = (TextView) rootView.findViewById(R.id.photo_detail_title);
         title.setText("Title of photo "+photo_index);
 

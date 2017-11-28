@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/floorNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:layout_alignParentStart="true"
+        android:paddingStart="?android:attr/expandableListPreferredChildPaddingLeft" />
+
+    <TextView
+        android:id="@+id/sound_icon"
+        style="@style/floorInfoIcons"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_toStartOf="@+id/capacity_icon"
+        android:fontFamily="@font/fontawesome"/>
+
+    <TextView
+        android:id="@+id/capacity_icon"
+        style="@style/floorInfoIcons"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_toStartOf="@id/floor_info_arrow"
+        android:text="@string/icon_capacity"
+        android:fontFamily="@font/fontawesome"/>
+
+    <TextView
+        android:id="@+id/floor_info_arrow"
+        style="@style/floorInfoIcons"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginEnd="15dp"
+        android:layout_alignParentEnd="true"
+        android:text="@string/icon_right_arrow"
+        android:fontFamily="@font/fontawesome"/>
+
+</RelativeLayout>

@@ -2,7 +2,27 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+
+    </style>
+
+    <style name="msLibraryNames" parent="@style/AppTheme">
+        <item name="android:textSize">20sp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="msLibraryHours" parent="@style/AppTheme">
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="floorInfoIcons" parent="@style/AppTheme">
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingStart">30dp</item>
+        <item name="android:gravity">center_vertical</item>
     </style>
 
 </resources>

@@ -28,7 +28,7 @@
             </meta-data>
         </provider>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:screenOrientation="portrait"> <!-- Disable rotation on home screen -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

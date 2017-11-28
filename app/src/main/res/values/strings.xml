@@ -1,6 +1,23 @@
 <resources>
     <string name="app_name">Spot</string>
+    <string name="msSelectLibrary">Find a Spott:</string>
+
+    <!-- FontAwesome Icons -->
     <string name="icon_camera">&#xf030;</string>
+    <string name="icon_capacity">&#xf0c0;</string>
+    <string name="icon_right_arrow">&#xf054;</string>
+    <string name="icon_no_volume">&#xf026;</string>
+    <string name="icon_medium_volume">&#xf027;</string>
+    <string name="icon_loud_volume">&#xf028;</string>
+
+    <!-- Library Hours -->
+    <string name="uglHours">10am - 12am</string>
+    <string name="graingerHours">Open 24 Hours</string>
+    <string name="mainlibHours">8:30am - 10pm</string>
+    <string name="acesHours">8:30am - 3am</string>
+    <string name="lawHours">9am - 10pm</string>
+    <string name="commHours">8am - 11pm</string>
+
     <string name="icon_bug">&#xf188;</string>
     <string name="icon_arrow_left">&#xf053;</string>
     <string name="icon_arrow_right">&#xf054;</string>

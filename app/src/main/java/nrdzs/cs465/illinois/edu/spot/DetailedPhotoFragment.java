@@ -28,22 +28,27 @@ public class DetailedPhotoFragment extends Fragment {
         SubsamplingScaleImageView photoView =
                 (SubsamplingScaleImageView) rootView.findViewById(R.id.detailed_photo_view);
 
-        int imageResource;
         Bundle args = getArguments();
         int photo_index = args.getInt(ARG_OBJECT);
+        int imageResource;
+        String titleText;
         switch (photo_index) {
             case 1:
                 imageResource = R.drawable.grainger_image_1;
+                titleText = "12:05 pm";
                 break;
             case 2:
                 imageResource = R.drawable.grainger_image_2;
+                titleText = "10:30 am";
                 break;
             case 3:
                 imageResource = R.drawable.grainger_image_3;
+                titleText = "Yesterday";
                 break;
             default:
                 Log.d("debug","number of hardcoded detailed photos inconsistent:"+photo_index);
                 imageResource = R.drawable.grainger_image_1;
+                titleText = "Monday";
 
         }
 
@@ -53,7 +58,7 @@ public class DetailedPhotoFragment extends Fragment {
 
         //TODO set real tile once we have real photos
         TextView title = (TextView) rootView.findViewById(R.id.photo_detail_title);
-        title.setText("Title of photo "+photo_index);
+        title.setText(titleText);
 
         return rootView;
     }

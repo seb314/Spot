@@ -49,13 +49,6 @@
         android:layout_height="match_parent"
         android:gravity="top|end">
 
-        <!-- this is just to show the image view -->
-        <ImageView
-            android:id="@+id/image_taken"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="Camera Icon" />
-
         <!-- this is the camera button -->
         <Button
             android:id="@+id/camera_button"

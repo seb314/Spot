@@ -53,10 +53,6 @@ public class MainActivity extends CustomActivity {
         });
         mCameraButton.setTypeface(mFontAwesomeTypeface);    // set to use font awesome
 
-        // bind an imageview so we could see the taken picture
-        mImageView = (ImageView) findViewById(R.id.image_taken);
-
-
         // Expandable ListView of Libraries
        ExpandableListView expListView = (ExpandableListView) findViewById(R.id.lvExp);
 

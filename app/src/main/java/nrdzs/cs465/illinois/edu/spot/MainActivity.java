@@ -18,6 +18,19 @@ import nrdzs.cs465.illinois.edu.spot.R;
 
 public class MainActivity extends CustomActivity {
 
+    public void startGallery(){
+
+        Button but = (Button) findViewById(R.id.button2);
+        but.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent nextIntent = new Intent(MainActivity.this, photo_gallary.class);
+                startActivity(nextIntent);
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +46,10 @@ public class MainActivity extends CustomActivity {
         mCameraButton.setTypeface(mFontAwesomeTypeface);
 
         mImageView = (ImageView) findViewById(R.id.image_taken);
+
+        startGallery();
+
+
     }
 
 

@@ -6,4 +6,48 @@
     android:layout_height="match_parent"
     tools:context="nrdzs.cs465.illinois.edu.spot.ConfirmPhotoLocationActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/floor_spinner">
+        </Spinner>
+        <RadioGroup
+            android:id="@+id/floor_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/floor_spinner"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/left_butt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/left_side"
+                android:layout_weight="1"
+                android:onClick="onButtTouched"/>
+            <RadioButton
+                android:id="@+id/center_butt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/center_side"
+                android:layout_weight="1"
+                android:onClick="onButtTouched"/>
+            <RadioButton
+                android:id="@+id/right_butt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/right_side"
+                android:layout_weight="1"
+                android:onClick="onButtTouched"/>
+        </RadioGroup>
+        <Button
+            android:id="@+id/ok_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/floor_radio"
+            android:text="@string/ok_text"/>
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

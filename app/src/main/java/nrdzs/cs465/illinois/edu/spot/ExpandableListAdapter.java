@@ -32,9 +32,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public Object getChild(int groupPosition, int childPosititon) {
+    public Object getChild(int groupPosition, int childPosition) {
         return this._floors.get(this._libraryNames.get(groupPosition))
-                .get(childPosititon);
+                .get(childPosition);
     }
 
     @Override

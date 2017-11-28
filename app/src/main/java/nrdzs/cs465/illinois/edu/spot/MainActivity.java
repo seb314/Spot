@@ -71,12 +71,17 @@ public class MainActivity extends CustomActivity {
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View view, int groupPosition, int childPosition, long id) {
+                final String library = (String) adapter.getGroup(groupPosition);
+                final String floor = (String) adapter.getChild(groupPosition, childPosition);
+
                 // store selected child
                 final String selected = (String) adapter.getChild(groupPosition, childPosition);
 
-                // change screens when child is clicked
-                Intent intent = new Intent(MainActivity.this, FloorAndPhotoActivity.class);
-                startActivity(intent);
+                if (library.equals("Grainger") && floor.equals("Second Floor")) {
+                    // change screens when child is clicked
+                    Intent intent = new Intent(MainActivity.this, FloorAndPhotoActivity.class);
+                    startActivity(intent);
+                }
 
                 return true;
             }

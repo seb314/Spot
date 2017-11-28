@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Spot</string>
     <string name="icon_camera">&#xf030;</string>
+    <string name="floor_map">floor map</string>
+    <string name="ok_text">OK</string>
+    <string-array name="floor_level_array">
+        <item>1st Floor</item>
+        <item>2nd Floor</item>
+        <item>3rd Floor</item>
+    </string-array>
 </resources>

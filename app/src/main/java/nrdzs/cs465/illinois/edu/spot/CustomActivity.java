@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,10 +23,12 @@ import java.util.Date;
 public class CustomActivity extends Activity {
     // constants
     static final int REQUEST_TAKE_PHOTO = 1;
+    static final int REQUEST_PHOTO_LOCATION = 2;
 
     // member data shared by activities and it's inheritors
     protected Button mCameraButton;
     protected String mCurrentPhotoPath;
+    protected int mCurrentLocation;
     protected Typeface mFontAwesomeTypeface;
     protected Bitmap mCurrentPhoto;
 
@@ -77,25 +80,16 @@ public class CustomActivity extends Activity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == Activity.RESULT_OK) {
-            File file = new File(mCurrentPhotoPath);
-            Uri uri = Uri.fromFile(file);
-            try {
-                mCurrentPhoto = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-
-                // set it to the imageview if it's not null, just for debugging purposes
-
-                // TODO once we got the image, call the ConfirmPhotoLocationActivity to get location
-
-                // TODO once we got location, push the image the data structure accordingly
-
-
-            } catch (Exception e) {
-                // TODO if shit happens
-                e.printStackTrace();
-            }
+            // launch the floor selection activity
+            Intent launchConfirmPhoto = new Intent(this, ConfirmPhotoLocationActivity.class);
+            startActivityForResult(launchConfirmPhoto, REQUEST_PHOTO_LOCATION);
         }
 
-        Intent launchConfirmPhoto = new Intent(this, ConfirmPhotoLocationActivity.class);
-        startActivity(launchConfirmPhoto);
+        else if(requestCode == REQUEST_PHOTO_LOCATION && resultCode == Activity.RESULT_OK){
+            // load the photo location, save it as the mCurrentLocation
+            Log.d("SELECTION", data.getStringExtra("USER_SELECTION"));
+            mCurrentLocation = Integer.parseInt(data.getStringExtra("USER_SELECTION"));
+        }
+
     }
 }

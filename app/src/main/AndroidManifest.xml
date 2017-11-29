@@ -10,12 +10,11 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo_no_text"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="edu.illinois.cs465.nrdzs.fileprovider"
@@ -23,9 +22,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths">
-
-            </meta-data>
+                android:resource="@xml/file_paths"></meta-data>
         </provider>
 
         <activity android:name=".MainActivity" android:screenOrientation="portrait"> <!-- Disable rotation on home screen -->
@@ -35,12 +32,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FloorAndPhotoActivity" />
         <activity android:name=".DetailedPhotoActivity" />
         <activity android:name=".ConfirmPhotoLocationActivity" />
-        <activity android:name=".CustomActivity"></activity>
-
-
+        <activity android:name=".CustomActivity" />
+        <activity android:name=".PhotoGallery"></activity>
     </application>
 
 </manifest>

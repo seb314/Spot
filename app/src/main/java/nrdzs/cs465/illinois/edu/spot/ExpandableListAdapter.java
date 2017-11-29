@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
@@ -72,6 +74,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         }
         TextView soundView = (TextView) convertView.findViewById(R.id.sound_icon);
         soundView.setText(soundIcon);
+        soundView.setTypeface(FontManager.getTypeface(_context, FontManager.FONTAWESOME));
 
 
         // Simulate and set capacity level data
@@ -87,6 +90,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         }
         final TextView capacityView = (TextView) convertView.findViewById(R.id.capacity_icon);
         capacityView.setTextColor(color);
+        capacityView.setTypeface(FontManager.getTypeface(_context, FontManager.FONTAWESOME));
+
+        TextView floorInfoArroy = (TextView) convertView.findViewById(R.id.floor_info_arrow);
+        floorInfoArroy.setTypeface(FontManager.getTypeface(_context, FontManager.FONTAWESOME));
 
 
         return convertView;

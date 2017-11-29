@@ -54,7 +54,7 @@ public class MainActivity extends CustomActivity {
                 // store selected child
                 final String selected = (String) adapter.getChild(groupPosition, childPosition);
 
-                if (library.equals("Grainger") && floor.equals("Second LibraryFloor")) {
+                if (library.equals("Grainger") && floor.equals("Second Floor")) {
                     // change screens when child is clicked
                     Intent intent = new Intent(MainActivity.this, PhotoGallery.class);
                     startActivity(intent);

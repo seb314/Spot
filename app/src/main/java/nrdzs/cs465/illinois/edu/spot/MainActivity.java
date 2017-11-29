@@ -1,36 +1,15 @@
 package nrdzs.cs465.illinois.edu.spot;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
+
 import android.widget.ExpandableListView;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.graphics.Typeface;
-
-import org.w3c.dom.Text;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
-import nrdzs.cs465.illinois.edu.spot.R;
 
 public class MainActivity extends CustomActivity {
 
@@ -77,7 +56,7 @@ public class MainActivity extends CustomActivity {
 
                 if (library.equals("Grainger") && floor.equals("Second Floor")) {
                     // change screens when child is clicked
-                    Intent intent = new Intent(MainActivity.this, FloorAndPhotoActivity.class);
+                    Intent intent = new Intent(MainActivity.this, PhotoGallery.class);
                     startActivity(intent);
                 }
 

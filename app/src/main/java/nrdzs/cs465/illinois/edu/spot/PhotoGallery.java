@@ -1,17 +1,17 @@
 package nrdzs.cs465.illinois.edu.spot;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
+
 import android.widget.RadioButton;
 import android.widget.TextView;
 
 
-public class photo_gallary extends Activity {
+
+public class PhotoGallery extends Activity {
 
     ViewPager viewPager;
     FloorSwipeAdapter adapter;
@@ -54,7 +54,7 @@ public class photo_gallary extends Activity {
     public void setNewAdapter(String position){
         viewPager.removeAllViews();
         viewPager.setAdapter(null);
-        adapter = new FloorSwipeAdapter(photo_gallary.this, position);
+        adapter = new FloorSwipeAdapter(PhotoGallery.this, position);
         viewPager.setAdapter(adapter);
     }
 
@@ -63,7 +63,7 @@ public class photo_gallary extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_gallary);
         viewPager = (ViewPager) findViewById(R.id.view_pager_slider);
-        adapter = new FloorSwipeAdapter(photo_gallary.this);
+        adapter = new FloorSwipeAdapter(PhotoGallery.this);
         viewPager.setAdapter(adapter);
 
     }

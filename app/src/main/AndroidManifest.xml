@@ -32,11 +32,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FloorAndPhotoActivity" />
         <activity android:name=".DetailedPhotoActivity" />
         <activity android:name=".ConfirmPhotoLocationActivity" />
         <activity android:name=".CustomActivity" />
-        <activity android:name=".photo_gallary"></activity>
+        <activity android:name=".PhotoGallery"></activity>
     </application>
 
 </manifest>

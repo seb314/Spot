@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="nrdzs.cs465.illinois.edu.spot.photo_gallary">
+    tools:context="nrdzs.cs465.illinois.edu.spot.PhotoGallery">
 
     <LinearLayout
         android:layout_width="match_parent"

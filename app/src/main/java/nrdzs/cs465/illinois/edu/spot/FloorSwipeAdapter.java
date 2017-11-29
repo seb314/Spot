@@ -1,6 +1,7 @@
 package nrdzs.cs465.illinois.edu.spot;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
@@ -65,12 +66,19 @@ public class FloorSwipeAdapter extends PagerAdapter {
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(final ViewGroup container, int position) {
         layoutInflater =  (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View itemView = layoutInflater.inflate(R.layout.swipe_layout_zuyi, container, false);
+        final View itemView = layoutInflater.inflate(R.layout.swipe_layout_zuyi, container, false);
         ImageView imageView = itemView.findViewById(R.id.image_view_all);
 
         imageView.setImageResource(curResources[position]);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent launchDetailedView = new Intent(ctx, DetailedPhotoActivity.class);
+                ctx.startActivity(launchDetailedView);
+            }
+        });
         container.addView(itemView);
         return itemView;
     }

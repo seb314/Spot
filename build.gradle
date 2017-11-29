@@ -3,6 +3,7 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
@@ -19,10 +20,12 @@ allprojects {
             url "https://maven.google.com"
         }
 
+
         // for zoomable photo view: https://github.com/chrisbanes/PhotoView
         maven {
             url "https://jitpack.io"
         }
+
     }
 }
 

@@ -34,9 +34,11 @@ import nrdzs.cs465.illinois.edu.spot.R;
 
 public class MainActivity extends CustomActivity {
 
+
     /*Expandable Listview Global Vars*/
     List<String> libraryNames;
     HashMap<String, List<String>> floorNamesMap;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

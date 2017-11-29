@@ -24,7 +24,6 @@ public class CustomActivity extends Activity {
     static final int REQUEST_TAKE_PHOTO = 1;
 
     // member data shared by activities and it's inheritors
-    protected ImageView mImageView;
     protected Button mCameraButton;
     protected String mCurrentPhotoPath;
     protected Typeface mFontAwesomeTypeface;
@@ -84,9 +83,6 @@ public class CustomActivity extends Activity {
                 mCurrentPhoto = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
 
                 // set it to the imageview if it's not null, just for debugging purposes
-                if(mImageView != null){
-                    mImageView.setImageBitmap(mCurrentPhoto);
-                }
 
                 // TODO once we got the image, call the ConfirmPhotoLocationActivity to get location
 
@@ -98,6 +94,8 @@ public class CustomActivity extends Activity {
                 e.printStackTrace();
             }
         }
-    }
 
+        Intent launchConfirmPhoto = new Intent(this, ConfirmPhotoLocationActivity.class);
+        startActivity(launchConfirmPhoto);
+    }
 }

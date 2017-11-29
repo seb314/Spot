@@ -66,5 +66,7 @@ public class PhotoGallery extends Activity {
         adapter = new FloorSwipeAdapter(PhotoGallery.this);
         viewPager.setAdapter(adapter);
 
+
+        Common.makeFullScreen(this);
     }
 }

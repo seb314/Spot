@@ -54,7 +54,7 @@ public class MainActivity extends CustomActivity {
                 // store selected child
                 final String selected = (String) adapter.getChild(groupPosition, childPosition);
 
-                if (library.equals("Grainger") && floor.equals("Second Floor")) {
+                if (library.equals("Grainger") && floor.equals("Second LibraryFloor")) {
                     // change screens when child is clicked
                     Intent intent = new Intent(MainActivity.this, PhotoGallery.class);
                     startActivity(intent);
@@ -85,36 +85,36 @@ public class MainActivity extends CustomActivity {
         // Adding child data to each library
         List<String> graingerFloors = new ArrayList<String>();
         graingerFloors.add("Basement");
-        graingerFloors.add("First Floor");
-        graingerFloors.add("Second Floor");
-        graingerFloors.add("Third Floor");
-        graingerFloors.add("Fourth Floor");
+        graingerFloors.add("First LibraryFloor");
+        graingerFloors.add("Second LibraryFloor");
+        graingerFloors.add("Third LibraryFloor");
+        graingerFloors.add("Fourth LibraryFloor");
 
         List<String> uglFloors = new ArrayList<String>();
         uglFloors.add("Lower Level");
         uglFloors.add("Upper Level");
 
         List<String> mainlibFloors = new ArrayList<String>();
-        mainlibFloors.add("First Floor");
-        mainlibFloors.add("Second Floor");
-        mainlibFloors.add("Third Floor");
-        mainlibFloors.add("Fourth Floor");
+        mainlibFloors.add("First LibraryFloor");
+        mainlibFloors.add("Second LibraryFloor");
+        mainlibFloors.add("Third LibraryFloor");
+        mainlibFloors.add("Fourth LibraryFloor");
 
         List<String> acesFloors = new ArrayList<String>();
         acesFloors.add("Basement");
-        acesFloors.add("First Floor");
-        acesFloors.add("Second Floor");
-        acesFloors.add("Third Floor");
-        acesFloors.add("Fourth Floor");
-        acesFloors.add("Fifth Floor");
+        acesFloors.add("First LibraryFloor");
+        acesFloors.add("Second LibraryFloor");
+        acesFloors.add("Third LibraryFloor");
+        acesFloors.add("Fourth LibraryFloor");
+        acesFloors.add("Fifth LibraryFloor");
 
         List<String> lawFloors = new ArrayList<String>();
-        lawFloors.add("First Floor");
+        lawFloors.add("First LibraryFloor");
 
         List<String> commFloors = new ArrayList<String>();
         commFloors.add("Basement");
-        commFloors.add("First Floor");
-        commFloors.add("Second Floor");
+        commFloors.add("First LibraryFloor");
+        commFloors.add("Second LibraryFloor");
 
         floorNamesMap.put(libraryNames.get(0), uglFloors); // Header, Child data
         floorNamesMap.put(libraryNames.get(1), graingerFloors);

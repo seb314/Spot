@@ -19,10 +19,13 @@ import android.util.Log;
 public class FloorSwipeAdapter extends PagerAdapter {
 
     private int [] curResources;
-    private int [] imageResources = {R.drawable.birthday_pusheen, R.drawable.background};
-    private int [] leftImageResources = {R.drawable.left, R.drawable.birthday_pusheen};
-    private int [] middleImageResources = {R.drawable.middle, R.drawable.birthday_pusheen};
-    private int [] rightImageResources = {R.drawable.right, R.drawable.birthday_pusheen};
+    private int [] imageResources = {R.drawable.grainger_image_1, R.drawable.grainger_image_2,
+            R.drawable.grainger_image_3, R.drawable.grainger_image_4, R.drawable.grainger_image_5};
+
+    private int [] leftImageResources = {R.drawable.grainger_image_1};
+    private int [] middleImageResources = {R.drawable.grainger_image_3, R.drawable.grainger_image_4,
+            R.drawable.grainger_image_5};
+    private int [] rightImageResources = {R.drawable.grainger_image_2};
 
     private Context ctx;
     private LayoutInflater layoutInflater;
@@ -35,10 +38,10 @@ public class FloorSwipeAdapter extends PagerAdapter {
             curResources = leftImageResources;
         }
         else if (position.equals("middle")){
-            curResources = rightImageResources;
+            curResources = middleImageResources;
         }
         else if (position.equals("right")){
-            curResources = middleImageResources;
+            curResources = rightImageResources;
         }
 
         Log.i("size of array", Integer.toString(curResources.length));

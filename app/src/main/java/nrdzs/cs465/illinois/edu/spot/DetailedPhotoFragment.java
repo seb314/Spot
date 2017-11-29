@@ -34,20 +34,20 @@ public class DetailedPhotoFragment extends Fragment {
         String titleText;
         switch (photo_index) {
             case 1:
-                imageResource = R.drawable.grainger_image_1;
+                imageResource = R.drawable.grainger_image_3;
                 titleText = "12:05 pm";
                 break;
             case 2:
-                imageResource = R.drawable.grainger_image_2;
+                imageResource = R.drawable.grainger_image_4;
                 titleText = "10:30 am";
                 break;
             case 3:
-                imageResource = R.drawable.grainger_image_3;
+                imageResource = R.drawable.grainger_image_5;
                 titleText = "Yesterday";
                 break;
             default:
                 Log.d("debug","number of hardcoded detailed photos inconsistent:"+photo_index);
-                imageResource = R.drawable.grainger_image_1;
+                imageResource = R.drawable.grainger_image_2;
                 titleText = "Monday";
 
         }

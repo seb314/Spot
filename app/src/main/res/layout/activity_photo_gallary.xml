@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitCenter"
-                android:src="@drawable/left" />
+                android:src="@drawable/left_full" />
 
             <RadioButton
                 android:id="@+id/left_button"
@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitCenter"
-                android:src="@drawable/middle" />
+                android:src="@drawable/center_full" />
 
             <RadioButton
                 android:id="@+id/middle_button"
@@ -88,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitCenter"
-                android:src="@drawable/right" />
+                android:src="@drawable/right_full" />
 
             <RadioButton
                 android:id="@+id/right_button"

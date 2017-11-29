@@ -41,7 +41,6 @@ public class FloorSwipeFragment  extends Fragment {
             }
         });
 
-
         return rootView;
     }
 

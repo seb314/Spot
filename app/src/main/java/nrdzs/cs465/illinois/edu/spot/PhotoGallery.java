@@ -2,6 +2,7 @@ package nrdzs.cs465.illinois.edu.spot;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -11,7 +12,7 @@ import android.widget.TextView;
 
 
 
-public class PhotoGallery extends Activity {
+public class PhotoGallery extends FragmentActivity {
 
     ViewPager viewPager;
     FloorSwipeAdapter adapter;
@@ -54,7 +55,7 @@ public class PhotoGallery extends Activity {
     public void setNewAdapter(String position){
         viewPager.removeAllViews();
         viewPager.setAdapter(null);
-        adapter = new FloorSwipeAdapter(PhotoGallery.this, position);
+        adapter = new FloorSwipeAdapter(getSupportFragmentManager(), position);
         viewPager.setAdapter(adapter);
     }
 
@@ -63,7 +64,7 @@ public class PhotoGallery extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_gallary);
         viewPager = (ViewPager) findViewById(R.id.view_pager_slider);
-        adapter = new FloorSwipeAdapter(PhotoGallery.this);
+        adapter = new FloorSwipeAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
 
 

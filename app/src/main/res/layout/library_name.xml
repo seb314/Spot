@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:background="@color/illiniBlue">
+
+
+    <TextView
+        android:id="@+id/libraryName"
+        style="@style/msLibraryNames"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:paddingStart="?android:attr/expandableListPreferredItemPaddingLeft" />
+
+    <TextView
+        android:id="@+id/libraryHours"
+        style="@style/msLibraryHours"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:paddingEnd="10dp"/>
+
+</RelativeLayout>

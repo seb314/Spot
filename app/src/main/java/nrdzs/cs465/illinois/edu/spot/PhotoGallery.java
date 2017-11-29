@@ -65,5 +65,6 @@ public class PhotoGallery extends Activity {
         viewPager.setAdapter(adapter);
 
         buttonInit();
+        Common.makeFullScreen(this);
     }
 }

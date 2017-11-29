@@ -27,57 +27,84 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
+            >
 
-            <ImageButton
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/left" />
+
+            <RadioButton
                 android:id="@+id/left_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitCenter"
+                android:button="@drawable/trans"
+                android:onClick="leftButtonClick"
+                />
 
-                android:src="@drawable/left" />
 
 
+        </RelativeLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
+            >
 
-            <ImageButton
-                android:id="@+id/middle_button"
+
+
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitCenter"
                 android:src="@drawable/middle" />
 
+            <RadioButton
+                android:id="@+id/middle_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:button="@drawable/trans"
+                android:onClick="middleButtonClick"/>
 
 
-        </LinearLayout>
 
-        <LinearLayout
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
+           >
 
-            <ImageButton
-                android:id="@+id/right_button"
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitCenter"
                 android:src="@drawable/right" />
 
+            <RadioButton
+                android:id="@+id/right_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:button="@drawable/trans"
+                android:onClick="rightButtonClick"/>
 
 
-        </LinearLayout>
+
+
+
+
+
+        </RelativeLayout>
 
     </LinearLayout>
 

@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 
@@ -15,40 +16,39 @@ public class photo_gallary extends Activity {
     ViewPager viewPager;
     FloorSwipeAdapter adapter;
 
-    public void buttonInit() {
-        ImageButton leftButton = (ImageButton) findViewById(R.id.left_button);
-        ImageButton middleButton = (ImageButton) findViewById(R.id.middle_button);
-        ImageButton rightButton = (ImageButton) findViewById(R.id.right_button);
 
 
+    public void rightButtonClick(View v){
+        RadioButton rightButton = (RadioButton) findViewById(R.id.right_button);
+        RadioButton middleButton = (RadioButton) findViewById(R.id.middle_button);
+        RadioButton leftButton = (RadioButton) findViewById(R.id.left_button);
 
-        leftButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i("zuyi", "left");
+        setNewAdapter("right");
+        rightButton.setButtonDrawable(R.drawable.spot_mark);
+        middleButton.setButtonDrawable(R.drawable.trans);
+        leftButton.setButtonDrawable(R.drawable.trans);
+    }
 
-               setNewAdapter("left");
+    public void middleButtonClick(View v){
+        RadioButton rightButton = (RadioButton) findViewById(R.id.right_button);
+        RadioButton middleButton = (RadioButton) findViewById(R.id.middle_button);
+        RadioButton leftButton = (RadioButton) findViewById(R.id.left_button);
 
+        setNewAdapter("middle");
+        middleButton.setButtonDrawable(R.drawable.spot_mark);
+        leftButton.setButtonDrawable(R.drawable.trans);
+        rightButton.setButtonDrawable(R.drawable.trans);
+    }
 
-            }
-        });
+    public void leftButtonClick(View v){
+        RadioButton rightButton = (RadioButton) findViewById(R.id.right_button);
+        RadioButton middleButton = (RadioButton) findViewById(R.id.middle_button);
+        RadioButton leftButton = (RadioButton) findViewById(R.id.left_button);
 
-        middleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                setNewAdapter("middle");
-            }
-        });
-
-        rightButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                setNewAdapter("right");
-            }
-        });
-
+        setNewAdapter("left");
+        leftButton.setButtonDrawable(R.drawable.spot_mark);
+        rightButton.setButtonDrawable(R.drawable.trans);
+        middleButton.setButtonDrawable(R.drawable.trans);
     }
 
     public void setNewAdapter(String position){
@@ -66,6 +66,5 @@ public class photo_gallary extends Activity {
         adapter = new FloorSwipeAdapter(photo_gallary.this);
         viewPager.setAdapter(adapter);
 
-        buttonInit();
     }
 }

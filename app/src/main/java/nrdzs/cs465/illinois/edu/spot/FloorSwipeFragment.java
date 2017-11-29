@@ -3,6 +3,7 @@ package nrdzs.cs465.illinois.edu.spot;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,8 +29,8 @@ public class FloorSwipeFragment  extends Fragment {
         int[] curResources = args.getIntArray(CUR_RESOURCES);
 
         ImageView imageView = rootView.findViewById(R.id.image_view_all);
-        int reqHeight = 100;//imageView.getHeight();
-        int reqWidth = 100;//imageView.getWidth();
+        int reqHeight = 200;//imageView.getHeight();
+        int reqWidth = 200;//imageView.getWidth();
 
         imageView.setImageBitmap(Common.decodeSampledBitmapFromResource(getResources(), curResources[index], reqWidth, reqHeight));
 
@@ -42,6 +43,12 @@ public class FloorSwipeFragment  extends Fragment {
         });
 
         return rootView;
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        Log.d("Fragment", "Fragment destroyed");
     }
 
 

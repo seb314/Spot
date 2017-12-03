@@ -1,6 +1,7 @@
 package nrdzs.cs465.illinois.edu.spot;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 public class MainActivity extends CustomActivity {
 
@@ -24,6 +26,10 @@ public class MainActivity extends CustomActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // change header font
+        TextView find_spot = (TextView) findViewById(R.id.find_a_spott);
+        find_spot.setTypeface(FontManager.getTypeface(this, FontManager.RALEWAY));
+
         // example for binding the camera button to the dispatch picture intent
         mCameraButton = (Button) findViewById(R.id.camera_button);
         mCameraButton.setOnClickListener(new View.OnClickListener() {
@@ -32,6 +38,7 @@ public class MainActivity extends CustomActivity {
                 dispatchTakePictureIntent();
             }
         });
+
         mCameraButton.setTypeface(mFontAwesomeTypeface);    // set to use font awesome
 
         // Expandable ListView of Libraries

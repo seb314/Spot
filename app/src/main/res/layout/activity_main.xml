@@ -7,18 +7,57 @@
     android:gravity="center"
     tools:context="nrdzs.cs465.illinois.edu.spot.MainActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#000">
+
+        <TextClock
+            android:id="@+id/clock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp"
+            android:textColor="#FFF"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/battery_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/battery_percentage"
+            android:textColor="#FFF"
+            android:layout_marginEnd="2dp"
+            android:text="@string/icon_battery_full"
+            android:textSize="12sp"
+            android:rotation="-90"/>
+
+        <TextView
+            android:id="@+id/battery_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/clock"
+            android:layout_alignBottom="@+id/clock"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:textColor="#FFF" />
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/illiniOrange">
+        android:background="@color/illiniOrange"
+        android:layout_marginBottom="2dp">
 
         <TextView
             android:id="@+id/find_a_spott"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_centerVertical="true"
             android:textSize="24sp"
             android:text="@string/msSelectLibrary"
@@ -37,6 +76,14 @@
                 android:textSize="20sp"
                 android:textColor="@color/illiniOrange"/>
     </RelativeLayout>
+
+
+
+<!--    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#FFF">
+    </View>-->
 
         <!-- List of UIUC Libraries -->
         <ExpandableListView

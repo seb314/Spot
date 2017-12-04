@@ -52,9 +52,12 @@ public class DetailedPhotoFragment extends Fragment {
 
         }
 
+        photoView.setMaximumDpi(160);
+        photoView.setMinimumScaleType(SubsamplingScaleImageView.SCALE_TYPE_CENTER_CROP);
+
         photoView.setImage(ImageSource.resource(imageResource));
 
-        photoView.setMinimumScaleType(SubsamplingScaleImageView.SCALE_TYPE_CENTER_CROP);
+
 
         //TODO set real tile once we have real photos
         TextView title = (TextView) rootView.findViewById(R.id.photo_detail_title);

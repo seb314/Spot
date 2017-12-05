@@ -30,8 +30,8 @@ public class MainActivity extends CustomActivity {
         setContentView(R.layout.activity_main);
 
         // change header font to Raleway
-        TextView find_spot = (TextView) findViewById(R.id.find_a_spott);
-        find_spot.setTypeface(FontManager.getTypeface(this, FontManager.RALEWAY));
+//        TextView find_spot = (TextView) findViewById(R.id.find_a_spott);
+//        find_spot.setTypeface(FontManager.getTypeface(this, FontManager.RALEWAY));
 
         // binding the camera button to the dispatch picture intent
         mCameraButton = (Button) findViewById(R.id.camera_button);

@@ -8,4 +8,11 @@
     <color name="capacityRed">#c23b22</color>
     <color name="capacityYellow">#FFD700</color>
     <color name="capacityGreen">#77dd77</color>
+
+    <color name="bluePrimary">#009FF2</color>
+    <color name="blueSecondary">#DDF3FE</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="black">#000000</color>
+
 </resources>

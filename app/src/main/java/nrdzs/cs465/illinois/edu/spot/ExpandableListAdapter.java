@@ -63,11 +63,16 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             soundIcon = _context.getString(R.string.icon_loud_volume);
         }
         else if (childPosition % 2 == 0){
-            soundIcon = _context.getString(R.string.icon_medium_volume);
+            soundIcon = _context.getString(R.string.icon_loud_volume);
         }
         else {
             soundIcon = _context.getString(R.string.icon_no_volume);
         }
+        if (childPosition == 2){
+            soundIcon = _context.getString(R.string.icon_no_volume);
+        }
+
+
         TextView soundView = (TextView) convertView.findViewById(R.id.sound_icon);
         soundView.setText(soundIcon);
         soundView.setTypeface(FontManager.getTypeface(_context, FontManager.FONTAWESOME));

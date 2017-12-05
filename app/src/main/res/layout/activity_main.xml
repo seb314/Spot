@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@color/bluePrimary"
     tools:context="nrdzs.cs465.illinois.edu.spot.MainActivity">
 
     <RelativeLayout
@@ -50,19 +51,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/illiniOrange"
+        android:background="@color/bluePrimary"
         android:layout_marginBottom="2dp">
 
-        <TextView
-            android:id="@+id/find_a_spott"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_centerVertical="true"
-            android:textSize="24sp"
-            android:text="@string/msSelectLibrary"
-            android:textColor="#FFF"
-            />
+        <!--<TextView-->
+            <!--android:id="@+id/find_a_spott"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="20dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:textSize="24sp"-->
+            <!--android:text="@string/msSelectLibrary"-->
+            <!--android:textColor="@color/black"-->
+            <!--/>-->
+
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/logo_blue" />
 
             <Button
                 android:id="@+id/camera_button"
@@ -70,11 +77,11 @@
                 android:layout_height="60dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_margin="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@drawable/rounded_button"
                 android:text="@string/icon_camera"
                 android:textSize="20sp"
-                android:textColor="@color/illiniOrange"/>
+                android:textColor="@color/bluePrimary"/>
     </RelativeLayout>
 
 

@@ -17,97 +17,61 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/view_pager_slider"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
 
         </android.support.v4.view.ViewPager>
 
     </LinearLayout>
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitCenter"
-                android:src="@drawable/left_full" />
-
-            <RadioButton
-                android:id="@+id/left_button"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitCenter"
-                android:button="@drawable/trans"
-                android:onClick="leftButtonClick"
-                />
+        android:layout_height="wrap_content">
 
 
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
+        <ImageView
+            android:id="@+id/background_img"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:src="@drawable/floorplan"
+            />
 
 
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitCenter"
-                android:src="@drawable/center_full" />
-
-            <RadioButton
-                android:id="@+id/middle_button"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitCenter"
-                android:button="@drawable/trans"
-                android:onClick="middleButtonClick"/>
+        <ImageButton
+            android:id="@+id/button_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:background="#00000000"
+            android:src="@drawable/logo_no_text_small"
+            app:layout_constraintBottom_toBottomOf="@+id/background_img"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background_img" />
 
 
+        <ImageButton
+            android:id="@+id/button_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:background="#00000000"
+            android:src="@drawable/logo_no_text_small"
+            app:layout_constraintBottom_toBottomOf="@+id/background_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background_img" />
 
-        </RelativeLayout>
+        <ImageButton
+            android:id="@+id/button_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:background="#00000000"
+            android:src="@drawable/logo_no_text_small"
+            app:layout_constraintBottom_toBottomOf="@+id/background_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background_img" />
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-           >
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitCenter"
-                android:src="@drawable/right_full" />
-
-            <RadioButton
-                android:id="@+id/right_button"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitCenter"
-                android:button="@drawable/trans"
-                android:onClick="rightButtonClick"/>
-
-
-
-
-
-
-
-        </RelativeLayout>
-
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>

@@ -13,6 +13,7 @@ public class DetailedPhotoActivity extends FragmentActivity implements ControlVi
     DetailedPhotoPagerAdapter mDetailedPhotoPagerAdapter;
     ViewPager mViewPager;
     Button cameraButton, nextPhotoButton, prevPhotoButton, backButton;
+    int[] curResources;
 
 
 
@@ -22,9 +23,11 @@ public class DetailedPhotoActivity extends FragmentActivity implements ControlVi
 
         // ViewPager and its adapters use support library
         // fragments, so use getSupportFragmentManager.
+        curResources = getIntent().getIntArrayExtra(FloorSwipeFragment.CUR_RESOURCES);
+
         mDetailedPhotoPagerAdapter =
                 new DetailedPhotoPagerAdapter(
-                        getSupportFragmentManager());
+                        getSupportFragmentManager(), curResources);
         mViewPager = (ViewPager) findViewById(R.id.detailed_photo_pager);
         mViewPager.setAdapter(mDetailedPhotoPagerAdapter);
 

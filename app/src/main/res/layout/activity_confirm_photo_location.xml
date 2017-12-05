@@ -1,107 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="nrdzs.cs465.illinois.edu.spot.ConfirmPhotoLocationActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF" >
+    android:background="#FFF"
+    tools:context="nrdzs.cs465.illinois.edu.spot.ConfirmPhotoLocationActivity">
 
-
-    <TextView
-        android:id="@+id/select_floor_text"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:gravity="center"
-        android:text="@string/select_floor"
-        android:textColor="@color/illiniBlue"
-        android:textSize="20sp" />
+        android:layout_height="137dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/videoView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:src="@drawable/logo_no_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Where?"
+            android:textSize="30dp"
+            app:layout_constraintStart_toEndOf="@+id/videoView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:text="Grainger"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/videoView" />
+    </android.support.constraint.ConstraintLayout>
 
     <Spinner
         android:id="@+id/floor_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_below="@+id/select_floor_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:gravity="center" />
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/floor_spinner"
-        android:layout_marginTop="14dp"
-        android:background="@color/illiniBlue"
-        android:id="@+id/view" />
-
-    <TextView
-        android:id="@+id/floor_place_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/view"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="@string/floor_place_text"
-        android:textColor="@color/illiniBlue"
-        android:textSize="18sp" />
+        android:layout_width="match_parent"
+        android:layout_height="106dp"
+        app:layout_constraintBottom_toTopOf="@+id/background_img"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <ImageView
         android:id="@+id/background_img"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@+id/floor_place_text"
-        android:layout_marginTop="20dp"
-        android:contentDescription="@string/floor_place_text"
-        android:padding="10dp"
-        android:src="@drawable/floorplan" />
+        android:layout_height="160dp"
+        android:src="@drawable/floorplan"
+        app:layout_constraintBottom_toTopOf="@+id/ok_button" />
 
-    <RadioGroup
-        android:id="@+id/floor_radio"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@+id/floor_place_text"
-        android:layout_marginTop="20dp"
-        android:contentDescription="@string/floor_place_text"
-        android:padding="10dp"
-        android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/left_butt"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@drawable/left_side"
-            android:onClick="onButtTouched" />
+    <ImageButton
+        android:id="@+id/button_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:src="@drawable/logo_no_text_small"
+        app:layout_constraintTop_toTopOf="@+id/background_img"
+        app:layout_constraintBottom_toBottomOf="@+id/background_img"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="50dp"
+        />
 
-        <RadioButton
-            android:id="@+id/center_butt"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@drawable/left_side"
-            android:onClick="onButtTouched" />
 
-        <RadioButton
-            android:id="@+id/right_butt"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@drawable/left_side"
-            android:onClick="onButtTouched" />
-    </RadioGroup>
+    <ImageButton
+        android:id="@+id/button_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:src="@drawable/logo_no_text_small"
+        app:layout_constraintBottom_toBottomOf="@+id/background_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/background_img"
+        android:layout_marginBottom="40dp"/>
+
+    <ImageButton
+        android:id="@+id/button_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:src="@drawable/logo_no_text_small"
+        app:layout_constraintTop_toTopOf="@+id/background_img"
+        app:layout_constraintBottom_toBottomOf="@+id/background_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="50dp"
+        />
 
     <Button
         android:id="@+id/ok_button"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
-        android:background="@color/illiniOrange"
-        android:gravity="center"
-        android:text="@string/submit_text"
-        android:textColor="#FFF"
-        android:textSize="18sp" />
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-</RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

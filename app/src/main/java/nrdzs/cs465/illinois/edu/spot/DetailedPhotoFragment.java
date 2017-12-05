@@ -1,5 +1,6 @@
 package nrdzs.cs465.illinois.edu.spot;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -10,12 +11,17 @@ import android.widget.TextView;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
-import com.github.chrisbanes.photoview.PhotoView;
+
+import java.util.HashSet;
+import java.util.Set;
 
 // Instances of this class are fragments representing a single
 // object in our collection.
 public class DetailedPhotoFragment extends Fragment {
     public static final String ARG_OBJECT = "index";
+    private TextView title;
+    private SubsamplingScaleImageView photoView;
+    private Set<ControlVisibilitySetter> controlVisibiltiySetters = new HashSet<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -25,7 +31,7 @@ public class DetailedPhotoFragment extends Fragment {
         View rootView = inflater.inflate(
                 R.layout.fragment_detailed_photo_frame, container, false);
 
-        SubsamplingScaleImageView photoView =
+        photoView =
                 (SubsamplingScaleImageView) rootView.findViewById(R.id.detailed_photo_view);
 
         Bundle args = getArguments();
@@ -52,14 +58,49 @@ public class DetailedPhotoFragment extends Fragment {
 
         }
 
-        photoView.setImage(ImageSource.resource(imageResource));
-
+        photoView.setMaximumDpi(160);
         photoView.setMinimumScaleType(SubsamplingScaleImageView.SCALE_TYPE_CENTER_CROP);
 
+        photoView.setImage(ImageSource.resource(imageResource));
+
+;
+
+
+
         //TODO set real tile once we have real photos
-        TextView title = (TextView) rootView.findViewById(R.id.photo_detail_title);
+        title = (TextView) rootView.findViewById(R.id.photo_detail_title);
         title.setText(titleText);
+
+        photoView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggleControlAndTitleVisibility();
+            }
+        });
 
         return rootView;
     }
+
+    @Override
+    public void onAttach(Context a){
+        super.onAttach(a);
+        controlVisibiltiySetters.add((ControlVisibilitySetter) a);
+        //setControlAndTitleVisibility(View.VISIBLE); somehow this doesn't work
+    }
+
+    private void toggleControlAndTitleVisibility(){
+        int newVisibiltiy = title.getVisibility() == View.GONE ? View.VISIBLE : View.GONE;
+
+        setControlAndTitleVisibility(newVisibiltiy);
+    }
+
+    private void setControlAndTitleVisibility(int newVisibility){
+        title.setVisibility(newVisibility);
+
+        // change the visibilty of the
+        for(ControlVisibilitySetter v: controlVisibiltiySetters){
+            v.setControlVisibiltiy(newVisibility);
+        }
+    }
 }
+

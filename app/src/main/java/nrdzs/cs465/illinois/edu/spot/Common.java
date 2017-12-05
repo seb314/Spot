@@ -35,22 +35,24 @@ public class Common {
     public static final int REQUEST_TAKE_PHOTO = 1;
 
 
-    public static void setupButton(final Activity parentActivity, int id, View.OnClickListener onClickListener){
+    public static Button setupButton(final Activity parentActivity, int id, View.OnClickListener onClickListener){
         Button b = (Button) parentActivity.findViewById(id);
         b.setOnClickListener(onClickListener);
 
         Typeface mFontAwesomeTypeface = Typeface.createFromAsset( parentActivity.getAssets(), "fontawesome-webfont.ttf" );
         b.setTypeface(mFontAwesomeTypeface);    // set to use font awesome
+        return b;
     }
 
 
-    static public void setupCameraButton(final Activity a){
-        setupButton(a, R.id.camera_button, new View.OnClickListener() {
+    static public Button setupCameraButton(final Activity a){
+        Button b = setupButton(a, R.id.camera_button, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dispatchTakePictureIntent(a);
             }
         });
+        return b;
     }
 
     // TODO this is currently code duplication with the (main?) activity class.

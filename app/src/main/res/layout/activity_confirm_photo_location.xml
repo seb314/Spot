@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
             android:text="Where?"
             android:textSize="30dp"
             app:layout_constraintStart_toEndOf="@+id/videoView"
@@ -39,7 +39,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="20dp"
             android:layout_marginStart="8dp"
             android:text="Grainger"
             android:textSize="30dp"
@@ -60,46 +60,43 @@
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:src="@drawable/floorplan"
-        app:layout_constraintTop_toBottomOf="@+id/floor_spinner"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/floor_spinner" />
 
 
     <ImageButton
         android:id="@+id/button_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
         android:background="#00000000"
         android:src="@drawable/logo_no_text_small"
-        app:layout_constraintTop_toTopOf="@+id/background_img"
         app:layout_constraintBottom_toBottomOf="@+id/background_img"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="30dp"
-        />
+        app:layout_constraintTop_toTopOf="@+id/background_img" />
 
 
     <ImageButton
         android:id="@+id/button_center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         android:background="#00000000"
         android:src="@drawable/logo_no_text_small"
         app:layout_constraintBottom_toBottomOf="@+id/background_img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/background_img"
-        android:layout_marginBottom="40dp"/>
+        app:layout_constraintTop_toTopOf="@+id/background_img" />
 
     <ImageButton
         android:id="@+id/button_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
         android:background="#00000000"
         android:src="@drawable/logo_no_text_small"
-        app:layout_constraintTop_toTopOf="@+id/background_img"
         app:layout_constraintBottom_toBottomOf="@+id/background_img"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="30dp"
-        />
+        app:layout_constraintTop_toTopOf="@+id/background_img" />
 
 
     <Button
@@ -108,12 +105,12 @@
         android:layout_height="80dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/rounded_button"
         android:text="@string/icon_check"
+        android:textColor="@color/bluePrimary"
         android:textSize="30sp"
-        android:textColor="@color/bluePrimary"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

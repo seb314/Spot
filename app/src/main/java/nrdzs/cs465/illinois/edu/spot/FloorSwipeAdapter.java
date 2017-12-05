@@ -35,11 +35,13 @@ public class FloorSwipeAdapter extends FragmentStatePagerAdapter {
         if (position.equals("left")){
             curResources = leftImageResources;
         }
-        else if (position.equals("middle")){
+        else if (position.equals("center")){
             curResources = middleImageResources;
         }
         else if (position.equals("right")){
             curResources = rightImageResources;
+        } else if (position.equals("all")) {
+            curResources = imageResources;
         }
 
         Log.i("size of array", Integer.toString(curResources.length));

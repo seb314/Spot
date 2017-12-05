@@ -45,6 +45,7 @@ public class PhotoGallery extends FragmentActivity {
         setupButtonOnclicklisteners(new HashSet<>(buttonsByName.values()));
 
         selected_area = "center";
+        setNewAdapter(selected_area);
 
         updateButtonVisibilities();
 

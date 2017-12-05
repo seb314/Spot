@@ -16,6 +16,7 @@ import android.util.Log;
 
 public class FloorSwipeAdapter extends FragmentStatePagerAdapter {
 
+    private String position = "all";
     private int [] curResources;
     private int [] imageResources = {R.drawable.grainger_image_1, R.drawable.grainger_image_2,
             R.drawable.grainger_image_3, R.drawable.grainger_image_4, R.drawable.grainger_image_5};
@@ -55,6 +56,7 @@ public class FloorSwipeAdapter extends FragmentStatePagerAdapter {
     public FloorSwipeAdapter(FragmentManager fm, String position){
         super(fm);
         init(position);
+        this.position = position;
     }
 
     @Override

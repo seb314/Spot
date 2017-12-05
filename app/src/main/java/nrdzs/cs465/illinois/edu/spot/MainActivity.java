@@ -45,15 +45,15 @@ public class MainActivity extends CustomActivity {
         // set camera button font to font awesome
         mCameraButton.setTypeface(mFontAwesomeTypeface);
 
-        // get battery percentage for header
-        String battery_percentage = getBatteryPercentage(this) + "%";
-        TextView bp_textview = (TextView) findViewById(R.id.battery_percentage);
-        bp_textview.setText(battery_percentage);
-
-        // set battery icon based on percentage
-        TextView battery_icon = (TextView) findViewById(R.id.battery_icon);
-        battery_icon.setTypeface(mFontAwesomeTypeface);
-        battery_icon.setText(getBatteryIcon(getBatteryPercentage(this)));
+//        // get battery percentage for header
+//        String battery_percentage = getBatteryPercentage(this) + "%";
+//        TextView bp_textview = (TextView) findViewById(R.id.battery_percentage);
+//        bp_textview.setText(battery_percentage);
+//
+//        // set battery icon based on percentage
+//        TextView battery_icon = (TextView) findViewById(R.id.battery_icon);
+//        battery_icon.setTypeface(mFontAwesomeTypeface);
+//        battery_icon.setText(getBatteryIcon(getBatteryPercentage(this)));
 
         // Expandable ListView of Libraries
        ExpandableListView expListView = (ExpandableListView) findViewById(R.id.lvExp);

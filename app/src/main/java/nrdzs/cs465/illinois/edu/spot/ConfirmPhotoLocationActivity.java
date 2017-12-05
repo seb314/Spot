@@ -34,6 +34,9 @@ public class ConfirmPhotoLocationActivity extends CustomActivity
         floorSpinner.setOnItemSelectedListener(this);
 
         setupOkButton();
+
+        // set to fullscreen
+        Common.makeFullScreen(this);
     }
 
     private void setupOkButton(){
@@ -48,6 +51,7 @@ public class ConfirmPhotoLocationActivity extends CustomActivity
             }
         });
     }
+
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

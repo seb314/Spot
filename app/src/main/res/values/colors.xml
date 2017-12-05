@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="illiniOrange">#E84A27</color>
     <color name="illiniBlue">#13294b</color>
+    <color name="capacityRed">#c23b22</color>
+    <color name="capacityYellow">#FFD700</color>
+    <color name="capacityGreen">#77dd77</color>
 </resources>

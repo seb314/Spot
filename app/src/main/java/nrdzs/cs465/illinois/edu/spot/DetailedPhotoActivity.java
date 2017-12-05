@@ -30,21 +30,21 @@ public class DetailedPhotoActivity extends FragmentActivity implements ControlVi
 
 
         cameraButton = Common.setupCameraButton(this);
-        setupBackButton();
+//        setupBackButton();
         setupNextPhotoButton();
         setupPrevPhotoButton();
 
         Common.makeFullScreen(this);
     }
 
-    private void setupBackButton(){
-        backButton = Common.setupButton(this, R.id.back_button, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
+//    private void setupBackButton(){
+//        backButton = Common.setupButton(this, R.id.back_button, new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
+//    }
 
     private void setupNextPhotoButton(){
         nextPhotoButton = Common.setupButton(this, R.id.next_button, new View.OnClickListener() {
@@ -68,7 +68,7 @@ public class DetailedPhotoActivity extends FragmentActivity implements ControlVi
 
     @Override
     public void setControlVisibiltiy(int visibiltiy) {
-        backButton.setVisibility(visibiltiy);
+//        backButton.setVisibility(visibiltiy);
         nextPhotoButton.setVisibility(visibiltiy);
         prevPhotoButton.setVisibility(visibiltiy);
         cameraButton.setVisibility(visibiltiy);

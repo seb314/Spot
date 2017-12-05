@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal"
-    android:background="@color/illiniBlue"
+    android:background="@color/blueSecondary"
     android:padding="20dp">
 
 
@@ -19,6 +19,7 @@
             android:id="@+id/libraryName"
             style="@style/msLibraryNames"
             android:layout_width="wrap_content"
+            android:textColor="@color/black"
             android:layout_height="wrap_content" />
 
         <TextView
@@ -26,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
-            android:textColor="#FFF"
+            android:textColor="@color/black"
             android:textStyle="italic" />
 
     </LinearLayout>
@@ -38,6 +39,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:gravity="end|center_vertical"
+        android:textColor="@color/black"
         android:paddingEnd="10dp"/>
 
 </LinearLayout>

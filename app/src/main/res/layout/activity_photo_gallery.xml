@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/blueSecondary"
     tools:context="nrdzs.cs465.illinois.edu.spot.PhotoGallery">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3">
+        android:layout_weight="3"
+        android:background="@color/blueSecondary">
 
         <android.support.v4.view.ViewPager
             android:id="@+id/view_pager_slider"

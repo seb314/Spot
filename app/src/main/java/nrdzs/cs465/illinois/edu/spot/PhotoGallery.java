@@ -1,15 +1,11 @@
 package nrdzs.cs465.illinois.edu.spot;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 
 import android.widget.RadioButton;
-import android.widget.TextView;
-
 
 
 public class PhotoGallery extends FragmentActivity {
@@ -62,7 +58,7 @@ public class PhotoGallery extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_photo_gallary);
+        setContentView(R.layout.activity_photo_gallery);
         viewPager = (ViewPager) findViewById(R.id.view_pager_slider);
         adapter = new FloorSwipeAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);

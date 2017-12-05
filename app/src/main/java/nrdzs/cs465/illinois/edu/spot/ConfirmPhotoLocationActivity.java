@@ -25,7 +25,7 @@ public class ConfirmPhotoLocationActivity extends CustomActivity {
         // set the floor options
         Spinner floorSpinner = (Spinner) findViewById(R.id.floor_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.floor_level_array,android.R.layout.simple_spinner_item);
+                R.array.floor_level_array, R.layout.spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         floorSpinner.setAdapter(adapter);
 
@@ -51,7 +51,7 @@ public class ConfirmPhotoLocationActivity extends CustomActivity {
     private void updateButtonVisibilities(){
         for(int i = 0; i < buttonsAsArray.length; i++){
             if (i != selected_button){
-                buttonsAsArray[i].setAlpha(0f);
+                buttonsAsArray[i].setAlpha(.2f);
             } else {
                 buttonsAsArray[i].setAlpha(1f);
             }
@@ -84,8 +84,7 @@ public class ConfirmPhotoLocationActivity extends CustomActivity {
     }
 
     private void setupOkButton(){
-        Button okButton = findViewById(R.id.ok_button);
-        okButton.setOnClickListener(new View.OnClickListener() {
+        Common.setupButton(this, R.id.ok_button, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent data = new Intent();

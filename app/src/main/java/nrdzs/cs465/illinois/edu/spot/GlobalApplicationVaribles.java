@@ -40,21 +40,22 @@ public class GlobalApplicationVaribles{
     public void initVariables(){
         for(int i = 0; i < allHardcodedPhotos.length; i++){
             Photo p = allHardcodedPhotos[i];
-            String area = p.getLocation();
-            if (!imagesForAreas.containsKey(area)){
-                imagesForAreas.put(area, new HashSet<Photo>());
-            }
-            imagesForAreas.get(area).add(p);
-            if (!imagesForAreas.containsKey("all")){
-                imagesForAreas.put("all", new HashSet<Photo>());
-            }
-            imagesForAreas.get("all").add(p);
+            addPhoto(p);
         }
     }
 
 
     public void addPhoto(Photo photo){
-        imagesForAreas.get(photo.getLocation()).add(photo);
+        String area = photo.getLocation();
+        if (!imagesForAreas.containsKey(area)){
+            imagesForAreas.put(area, new HashSet<Photo>());
+        }
+        imagesForAreas.get(area).add(photo);
+
+        if (!imagesForAreas.containsKey("all")){
+            imagesForAreas.put("all", new HashSet<Photo>());
+        }
+        imagesForAreas.get("all").add(photo);
     }
 
 

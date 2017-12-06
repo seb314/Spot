@@ -40,6 +40,8 @@ public class DetailedPhotoFragment extends Fragment {
 
         photoView.setMaximumDpi(160);
         photoView.setMinimumScaleType(SubsamplingScaleImageView.SCALE_TYPE_CENTER_CROP);
+        photoView.setMaxScale(5); // try to allow more zooming
+        photoView.setMinimumDpi(25); // try to allow more zooming
 
         photoView.setImage(ImageSource.resource(imageResource));
 

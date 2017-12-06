@@ -46,21 +46,21 @@ public class ServerUtilsExample {
     public void uploadAPhoto(int floorLocation) {
         this.floorLocation = floorLocation;
         
-        try {
+        //try {
             // create a temp file to upload
             String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
             filename = "JPEG_" + timestamp + "_";
             Log.d("FILENAME:", filename);
-            imgFile = File.createTempFile(filename, ".jpg",
-                    getExternalFilesDir(Environment.DIRECTORY_PICTURES));
+            //imgFile = File.createTempFile(filename, ".jpg",
+            //        getExternalFilesDir(Environment.DIRECTORY_PICTURES));
 
             // write into the file here with bitmap data from camera, etc.
 
             // upload the photo
             new UploadOperation().execute();
-        } catch (IOException e) {
-            Log.e("ERROR", "IOException from uploading images!");
-        }
+        //} catch (IOException e) {
+        //    Log.e("ERROR", "IOException from uploading images!");
+        //}
     }
 
     public void downloadPhotos(int floorLocation) {

@@ -1,6 +1,8 @@
 package nrdzs.cs465.illinois.edu.spot;
 
+import android.app.Application;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,43 +18,45 @@ import android.util.Log;
 
 public class FloorSwipeAdapter extends FragmentStatePagerAdapter {
 
-    private int [] curResources;
-    private int [] imageResources = {R.drawable.grainger_image_1, R.drawable.grainger_image_2,
-            R.drawable.grainger_image_3, R.drawable.grainger_image_4, R.drawable.grainger_image_5};
-
-    private int [] leftImageResources = {R.drawable.grainger_image_1};
-    private int [] middleImageResources = {R.drawable.grainger_image_3, R.drawable.grainger_image_4,
-            R.drawable.grainger_image_5};
-    private int [] rightImageResources = {R.drawable.grainger_image_2};
+    private String position = "all";
+    private int[] curResources;
 
     private Context ctx;
     private LayoutInflater layoutInflater;
+    private GlobalApplicationVaribles glob = GlobalApplicationVaribles.getInstance(ctx);
 
     public void init(String position){
 
 
 
         if (position.equals("left")){
-            curResources = leftImageResources;
+            curResources = glob.getLeftImageResources();//leftImageResources;
+
         }
-        else if (position.equals("middle")){
-            curResources = middleImageResources;
+        else if (position.equals("center")){
+            curResources = glob.getMiddleImageResources(); //middleImageResources;
         }
         else if (position.equals("right")){
-            curResources = rightImageResources;
+            curResources = glob.getRightImageResources();//rightImageResources;
+        } else if (position.equals("all")) {
+
+            curResources = glob.getImageResources();//imageResources;
         }
 
         Log.i("size of array", Integer.toString(curResources.length));
     }
 
     public FloorSwipeAdapter(FragmentManager fm){
+
         super(fm);
-        curResources = imageResources;
+        curResources = glob.getImageResources(); //imageResources;
+
     }
 
     public FloorSwipeAdapter(FragmentManager fm, String position){
         super(fm);
         init(position);
+        this.position = position;
     }
 
     @Override

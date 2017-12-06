@@ -18,7 +18,7 @@ import java.util.Set;
 // Instances of this class are fragments representing a single
 // object in our collection.
 public class DetailedPhotoFragment extends Fragment {
-    public static final String ARG_OBJECT = "index";
+    public static final String PHOTO_RESOURCE = "photo_resource";
     private TextView title;
     private SubsamplingScaleImageView photoView;
     private Set<ControlVisibilitySetter> controlVisibiltiySetters = new HashSet<>();
@@ -35,31 +35,13 @@ public class DetailedPhotoFragment extends Fragment {
                 (SubsamplingScaleImageView) rootView.findViewById(R.id.detailed_photo_view);
 
         Bundle args = getArguments();
-        int photo_index = args.getInt(ARG_OBJECT);
-        int imageResource;
-        String titleText;
-        switch (photo_index) {
-            case 1:
-                imageResource = R.drawable.grainger_image_3;
-                titleText = "12:05 pm";
-                break;
-            case 2:
-                imageResource = R.drawable.grainger_image_4;
-                titleText = "10:30 am";
-                break;
-            case 3:
-                imageResource = R.drawable.grainger_image_5;
-                titleText = "Yesterday";
-                break;
-            default:
-                Log.d("debug","number of hardcoded detailed photos inconsistent:"+photo_index);
-                imageResource = R.drawable.grainger_image_2;
-                titleText = "Monday";
-
-        }
+        int imageResource = args.getInt(PHOTO_RESOURCE);
+        String titleText = getTitleForResource(imageResource);
 
         photoView.setMaximumDpi(160);
         photoView.setMinimumScaleType(SubsamplingScaleImageView.SCALE_TYPE_CENTER_CROP);
+        photoView.setMaxScale(5); // try to allow more zooming
+        photoView.setMinimumDpi(25); // try to allow more zooming
 
         photoView.setImage(ImageSource.resource(imageResource));
 
@@ -79,6 +61,15 @@ public class DetailedPhotoFragment extends Fragment {
         });
 
         return rootView;
+    }
+
+    private String getTitleForResource(int photoRescource){
+        /**
+         * provides a shitty hardcoded mapping of photo's recouces to some string that represents at time
+         *
+         */
+        // TODO implement
+        return "12:34 pm";
     }
 
     @Override

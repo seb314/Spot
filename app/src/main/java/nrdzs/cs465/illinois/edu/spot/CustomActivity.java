@@ -31,6 +31,7 @@ public class CustomActivity extends Activity {
     protected int mCurrentLocation;
     protected Typeface mFontAwesomeTypeface;
     protected Bitmap mCurrentPhoto;
+    private GlobalApplicationVaribles glob = GlobalApplicationVaribles.getInstance(CustomActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +90,19 @@ public class CustomActivity extends Activity {
             // load the photo location, save it as the mCurrentLocation
             Log.d("SELECTION", data.getStringExtra("USER_SELECTION"));
             mCurrentLocation = Integer.parseInt(data.getStringExtra("USER_SELECTION"));
+            switch(mCurrentLocation){
+                case 0:
+                    glob.addLeftResource();
+                    break;
+
+                case 1:
+                    glob.addMiddleResource();
+                    break;
+
+                case 2:
+                    glob.addRightResource();
+                    break;
+            }
         }
 
     }

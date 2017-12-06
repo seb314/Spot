@@ -16,6 +16,7 @@ import android.widget.ImageView;
 public class FloorSwipeFragment  extends Fragment {
     public static final String INDEX = "index";
     public static final String CUR_RESOURCES = "cur_resources";
+    private int[] curResources;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -25,11 +26,11 @@ public class FloorSwipeFragment  extends Fragment {
         View rootView = inflater.inflate(
                 R.layout.swipe_layout_zuyi, container, false);
         Bundle args = getArguments();
-        int index = args.getInt(INDEX);
-        int[] curResources = args.getIntArray(CUR_RESOURCES);
+        final int index = args.getInt(INDEX);
+        curResources = args.getIntArray(CUR_RESOURCES);
 
         ImageView imageView = rootView.findViewById(R.id.image_view_all);
-        int reqHeight = 200;//imageView.getHeight();
+        int reqHeight = 300;//imageView.getHeight();
         int reqWidth = 200;//imageView.getWidth();
 
         imageView.setImageBitmap(Common.decodeSampledBitmapFromResource(getResources(), curResources[index], reqWidth, reqHeight));
@@ -38,6 +39,7 @@ public class FloorSwipeFragment  extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent launchDetailedView = new Intent(getContext(), DetailedPhotoActivity.class);
+                launchDetailedView.putExtra(CUR_RESOURCES, curResources);
                 getContext().startActivity(launchDetailedView);
             }
         });

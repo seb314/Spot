@@ -13,6 +13,7 @@ public class DetailedPhotoActivity extends FragmentActivity implements ControlVi
     DetailedPhotoPagerAdapter mDetailedPhotoPagerAdapter;
     ViewPager mViewPager;
     Button cameraButton, nextPhotoButton, prevPhotoButton, backButton;
+    int[] curResources;
 
 
 
@@ -22,29 +23,31 @@ public class DetailedPhotoActivity extends FragmentActivity implements ControlVi
 
         // ViewPager and its adapters use support library
         // fragments, so use getSupportFragmentManager.
+        curResources = getIntent().getIntArrayExtra(FloorSwipeFragment.CUR_RESOURCES);
+
         mDetailedPhotoPagerAdapter =
                 new DetailedPhotoPagerAdapter(
-                        getSupportFragmentManager());
+                        getSupportFragmentManager(), curResources);
         mViewPager = (ViewPager) findViewById(R.id.detailed_photo_pager);
         mViewPager.setAdapter(mDetailedPhotoPagerAdapter);
 
 
         cameraButton = Common.setupCameraButton(this);
-        setupBackButton();
+//        setupBackButton();
         setupNextPhotoButton();
         setupPrevPhotoButton();
 
         Common.makeFullScreen(this);
     }
 
-    private void setupBackButton(){
-        backButton = Common.setupButton(this, R.id.back_button, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
+//    private void setupBackButton(){
+//        backButton = Common.setupButton(this, R.id.back_button, new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
+//    }
 
     private void setupNextPhotoButton(){
         nextPhotoButton = Common.setupButton(this, R.id.next_button, new View.OnClickListener() {
@@ -68,7 +71,7 @@ public class DetailedPhotoActivity extends FragmentActivity implements ControlVi
 
     @Override
     public void setControlVisibiltiy(int visibiltiy) {
-        backButton.setVisibility(visibiltiy);
+//        backButton.setVisibility(visibiltiy);
         nextPhotoButton.setVisibility(visibiltiy);
         prevPhotoButton.setVisibility(visibiltiy);
         cameraButton.setVisibility(visibiltiy);

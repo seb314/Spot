@@ -1,24 +1,35 @@
 <resources>
     <string name="app_name">Spott</string>
     <string name="msSelectLibrary">Find a Spott:</string>
-
-    <!-- FontAwesome Icons -->
-    <string name="icon_camera">&#xf030;</string>
+    <string name="submit_text">Submit</string>
+    <string name="select_floor">Which floor was this photo taken on?</string>
+    <string name="floor_place_text">What side of the floor was this photo taken?</string>
     <string name="floor_map">floor map</string>
-    <string name="ok_text">OK</string>
     <string-array name="floor_level_array">
         <item>1st Floor</item>
         <item>2nd Floor</item>
         <item>3rd Floor</item>
     </string-array>
-    <string name="select_floor">Which floor was this photo taken on?</string>
-    <string name="floor_place_text">Where on the floor was this photo taken?</string>
-    
+
+
+    <!-- FontAwesome Icons -->
+    <string name="icon_camera">&#xf030;</string>
     <string name="icon_capacity">&#xf0c0;</string>
     <string name="icon_right_arrow">&#xf054;</string>
     <string name="icon_no_volume">&#xf026;</string>
     <string name="icon_medium_volume">&#xf027;</string>
     <string name="icon_loud_volume">&#xf028;</string>
+    <string name="icon_bug">&#xf188;</string>
+    <string name="icon_arrow_left">&#xf053;</string>
+    <string name="icon_arrow_right">&#xf054;</string>
+    <string name="icon_back">&#xf0d9;</string>
+    <string name="icon_battery_full">&#xf240;</string>
+    <string name="icon_battery_75">&#xf241;</string>
+    <string name="icon_battery_50">&#xf242;</string>
+    <string name="icon_battery_25">&#xf243;</string>
+    <string name="icon_check">&#xf00c;</string>
+
+
 
     <!-- Library Hours -->
     <string name="uglHours">10am - 12am</string>
@@ -28,8 +39,13 @@
     <string name="lawHours">9am - 10pm</string>
     <string name="commHours">8am - 11pm</string>
 
-    <string name="icon_bug">&#xf188;</string>
-    <string name="icon_arrow_left">&#xf053;</string>
-    <string name="icon_arrow_right">&#xf054;</string>
-    <string name="icon_back">&#xf0d9;</string>
+    <!-- Simulated Distances -->
+    <string name="uglDist">0.2 mi</string>
+    <string name="graingerDist">0.8 mi</string>
+    <string name="mainlibDist">1.1 mi</string>
+    <string name="acesDist">1.4 mi</string>
+    <string name="lawDist">1.6 mi</string>
+    <string name="commDist">2.1 mi</string>
+
+
 </resources>

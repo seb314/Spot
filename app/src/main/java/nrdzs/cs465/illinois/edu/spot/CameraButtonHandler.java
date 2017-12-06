@@ -2,50 +2,51 @@ package nrdzs.cs465.illinois.edu.spot;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Typeface;
 import android.net.Uri;
-import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import nrdzs.cs465.illinois.edu.spot.backend.Photo;
 
-public class CustomActivity extends Activity {
-    // constants
-    static final int REQUEST_TAKE_PHOTO = 1;
-    static final int REQUEST_PHOTO_LOCATION = 2;
+import static nrdzs.cs465.illinois.edu.spot.CustomActivity.REQUEST_PHOTO_LOCATION;
+import static nrdzs.cs465.illinois.edu.spot.CustomActivity.REQUEST_TAKE_PHOTO;
 
-    // member data shared by activities and it's inheritors
-    protected Button mCameraButton;
-    protected String mCurrentPhotoPath;
-    protected int mCurrentLocation;
-    protected Typeface mFontAwesomeTypeface;
-    protected Bitmap mCurrentPhoto;
-    private GlobalApplicationVaribles glob = GlobalApplicationVaribles.getInstance(CustomActivity.this);
+/**
+ * Created by sebastian on 06.12.17.
+ */
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+public class CameraButtonHandler {
 
-        mFontAwesomeTypeface = Typeface.createFromAsset( getAssets(), "fontawesome-webfont.ttf" );
+    Activity parent;
+    String mCurrentPhotoPath;
+
+    public CameraButtonHandler(Activity parent){
+        this.parent = parent;
     }
+
+    public Button setupCameraButton(){
+        Button b = Common.setupButton(parent, R.id.camera_button, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dispatchTakePictureIntent();
+            }
+        });
+        return b;
+    }
+
 
     protected void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Ensure that there's a camera activity to handle the intent
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+        if (takePictureIntent.resolveActivity(parent.getPackageManager()) != null) {
             // Create the File where the photo should go
             File photoFile = null;
             try {
@@ -55,11 +56,11 @@ public class CustomActivity extends Activity {
             }
             // Continue only if the File was successfully created
             if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this,
+                Uri photoURI = FileProvider.getUriForFile(parent,
                         "edu.illinois.cs465.nrdzs.fileprovider",
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+                parent.startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
             }
         }
     }
@@ -69,7 +70,7 @@ public class CustomActivity extends Activity {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File storageDir = parent.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(
                 imageFileName,  /* prefix */
                 ".jpg",         /* suffix */
@@ -84,13 +85,13 @@ public class CustomActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == Activity.RESULT_OK) {
             // launch the floor selection activity
-            Intent launchConfirmPhoto = new Intent(this, ConfirmPhotoLocationActivity.class);
-            startActivityForResult(launchConfirmPhoto, REQUEST_PHOTO_LOCATION);
+            Intent launchConfirmPhoto = new Intent(parent, ConfirmPhotoLocationActivity.class);
+            parent.startActivityForResult(launchConfirmPhoto, REQUEST_PHOTO_LOCATION);
         }
 
         else if(requestCode == REQUEST_PHOTO_LOCATION && resultCode == Activity.RESULT_OK){
             // load the photo location, save it as the mCurrentLocation
-            mCurrentLocation = data.getIntExtra(ConfirmPhotoLocationActivity.USER_SELECTION, 1);
+            int mCurrentLocation = data.getIntExtra(ConfirmPhotoLocationActivity.USER_SELECTION, 1);
             String area;
             switch (mCurrentLocation){
                 case 0:
@@ -106,7 +107,7 @@ public class CustomActivity extends Activity {
                     area = "center";
             }
             Photo photo = new Photo(mCurrentPhotoPath, area, new Date().getTime());
-            GlobalApplicationVaribles.getInstance(this).addPhoto(photo);
+            GlobalApplicationVaribles.getInstance(parent).addPhoto(photo);
 
         }
 

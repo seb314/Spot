@@ -5,19 +5,15 @@ package nrdzs.cs465.illinois.edu.spot;
  */
 
 import android.content.Context;
-import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
+import java.lang.String;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
@@ -67,33 +63,37 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             soundIcon = _context.getString(R.string.icon_loud_volume);
         }
         else if (childPosition % 2 == 0){
-            soundIcon = _context.getString(R.string.icon_medium_volume);
+            soundIcon = _context.getString(R.string.icon_loud_volume);
         }
         else {
             soundIcon = _context.getString(R.string.icon_no_volume);
         }
+        if (childPosition == 2){
+            soundIcon = _context.getString(R.string.icon_no_volume);
+        }
+
+
         TextView soundView = (TextView) convertView.findViewById(R.id.sound_icon);
         soundView.setText(soundIcon);
         soundView.setTypeface(FontManager.getTypeface(_context, FontManager.FONTAWESOME));
 
 
         // Simulate and set capacity level data
-        final int color;
+        final TextView capacityView = (TextView) convertView.findViewById(R.id.capacity_icon);
+
         if (Math.floor(Math.random() * 10) > 7){
-            color = Color.RED;
+            capacityView.setTextColor(_context.getResources().getColor(R.color.capacityRed));
         }
         else if (Math.floor(Math.random() * 10) < 3){
-            color = Color.YELLOW;
+            capacityView.setTextColor(_context.getResources().getColor(R.color.capacityYellow));
         }
         else {
-            color = Color.GREEN;
+            capacityView.setTextColor(_context.getResources().getColor(R.color.capacityGreen));
         }
-        final TextView capacityView = (TextView) convertView.findViewById(R.id.capacity_icon);
-        capacityView.setTextColor(color);
         capacityView.setTypeface(FontManager.getTypeface(_context, FontManager.FONTAWESOME));
 
-        TextView floorInfoArroy = (TextView) convertView.findViewById(R.id.floor_info_arrow);
-        floorInfoArroy.setTypeface(FontManager.getTypeface(_context, FontManager.FONTAWESOME));
+        TextView floorInfoArray = (TextView) convertView.findViewById(R.id.floor_info_arrow);
+        floorInfoArray.setTypeface(FontManager.getTypeface(_context, FontManager.FONTAWESOME));
 
 
         return convertView;
@@ -129,10 +129,35 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = inflater.inflate(R.layout.library_name, null);
         }
 
-        // Set library names and hours
+        // Set library names, distance, and hours
         String name = (String) getGroup(groupPosition);
         TextView libraryName = (TextView) convertView.findViewById(R.id.libraryName);
         libraryName.setText(name);
+
+        String dist;
+        switch (name){
+            case "UGL":
+                dist = _context.getString(R.string.uglDist);
+                break;
+            case "Grainger":
+                dist = _context.getString(R.string.graingerDist);
+                break;
+            case "Main Library":
+                dist = _context.getString(R.string.mainlibDist);
+                break;
+            case "ACES":
+                dist = _context.getString(R.string.acesDist);
+                break;
+            case "Law":
+                dist = _context.getString(R.string.lawDist);
+                break;
+            case "Communications":
+                dist = _context.getString(R.string.commDist);
+                break;
+            default: dist = "Distance Not Available";
+        }
+        TextView distance = (TextView) convertView.findViewById(R.id.distance);
+        distance.setText(dist);
 
         String hours;
         switch (name){

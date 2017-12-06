@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@drawable/logo_no_text"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/spott_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <provider
@@ -22,20 +22,25 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".MainActivity" android:screenOrientation="portrait"> <!-- Disable rotation on home screen -->
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme"
+            > <!-- Disable rotation on home screen -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".MainActivity" />
         <activity android:name=".DetailedPhotoActivity" />
         <activity android:name=".ConfirmPhotoLocationActivity" />
         <activity android:name=".CustomActivity" />
-        <activity android:name=".PhotoGallery"></activity>
+        <activity android:name=".PhotoGallery" />
     </application>
 
 </manifest>

@@ -1,37 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/bluePrimary"
     tools:context="nrdzs.cs465.illinois.edu.spot.MainActivity">
 
-    <LinearLayout
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:background="#000">-->
+
+        <!--<TextClock-->
+            <!--android:id="@+id/clock"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:padding="5dp"-->
+            <!--android:textColor="#FFF"-->
+            <!--android:textSize="15sp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/battery_icon"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_toStartOf="@+id/battery_percentage"-->
+            <!--android:textColor="#FFF"-->
+            <!--android:layout_marginEnd="2dp"-->
+            <!--android:text="@string/icon_battery_full"-->
+            <!--android:textSize="12sp"-->
+            <!--android:rotation="-90"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/battery_percentage"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBaseline="@+id/clock"-->
+            <!--android:layout_alignBottom="@+id/clock"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_marginEnd="15dp"-->
+            <!--android:textColor="#FFF" />-->
+
+    <!--</RelativeLayout>-->
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="0dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="10dp"
-        android:layout_marginBottom="30dp"
-        tools:context="nrdzs.cs465.illinois.edu.spot.MainActivity">
+        android:orientation="horizontal"
+        android:background="@color/bluePrimary"
+        android:layout_marginBottom="2dp">
 
-        <!--Spott Logo-->
-         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="Spott Logo"
-            android:src="@drawable/logo" />
+        <!--<TextView-->
+            <!--android:id="@+id/find_a_spott"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="20dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:textSize="24sp"-->
+            <!--android:text="@string/msSelectLibrary"-->
+            <!--android:textColor="@color/black"-->
+            <!--/>-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:text="@string/msSelectLibrary"
-            android:textStyle="italic"
-            android:textColor="#000"
-            android:layout_marginBottom="15dp"/>
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/logo_blue" />
+
+            <Button
+                android:id="@+id/camera_button"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/rounded_button"
+                android:text="@string/icon_camera"
+                android:textSize="20sp"
+                android:textColor="@color/bluePrimary"/>
+    </RelativeLayout>
+
+
+
+<!--    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#FFF">
+    </View>-->
 
         <!-- List of UIUC Libraries -->
         <ExpandableListView
@@ -40,27 +99,6 @@
             android:layout_width="match_parent"
             android:groupIndicator="@null"/>
 
-    </LinearLayout>
 
-
-    <!-- Floating Camera Button -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="top|end">
-
-        <!-- this is the camera button -->
-        <Button
-            android:id="@+id/camera_button"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rounded_button"
-            android:text="@string/icon_camera"
-            android:textColor="#fff"/>
-
-    </RelativeLayout>
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
 

@@ -1,4 +1,4 @@
-package nrdzs.cs465.illinois.edu.spot;
+package nrdzs.cs465.illinois.edu.spot.server_utilities;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

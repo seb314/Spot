@@ -40,7 +40,7 @@ public class Photo implements Comparable<Photo>{
 
     @Override
     public int compareTo(@NonNull Photo o) {
-        return (int) (this.timestamp - o.timestamp);
+        return (int) (o.timestamp - this.timestamp);
     }
 
     public String getLocation() {
@@ -62,7 +62,11 @@ public class Photo implements Comparable<Photo>{
     public String getTitleText(){
         long now = new Date().getTime();
         double hoursAgo = (now - timestamp)/(1000. * 3600.);
-        return String.valueOf((int) hoursAgo);
+        if (hoursAgo < 24){
+            return (int)hoursAgo + "h ago";
+        } else {
+            return (int)(hoursAgo / 24) + "d ago";
+        }
         // TODO make nice date string
     }
 }

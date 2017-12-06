@@ -30,7 +30,7 @@ public class FloorSwipeFragment  extends Fragment {
         curResources = args.getIntArray(CUR_RESOURCES);
 
         ImageView imageView = rootView.findViewById(R.id.image_view_all);
-        int reqHeight = 200;//imageView.getHeight();
+        int reqHeight = 300;//imageView.getHeight();
         int reqWidth = 200;//imageView.getWidth();
 
         imageView.setImageBitmap(Common.decodeSampledBitmapFromResource(getResources(), curResources[index], reqWidth, reqHeight));

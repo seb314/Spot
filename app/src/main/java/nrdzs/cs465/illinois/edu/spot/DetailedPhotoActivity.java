@@ -1,10 +1,18 @@
 package nrdzs.cs465.illinois.edu.spot;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.Date;
+
+import nrdzs.cs465.illinois.edu.spot.backend.Photo;
+
+import static nrdzs.cs465.illinois.edu.spot.CustomActivity.REQUEST_PHOTO_LOCATION;
 
 
 public class DetailedPhotoActivity extends FragmentActivity implements ControlVisibilitySetter {
@@ -14,6 +22,7 @@ public class DetailedPhotoActivity extends FragmentActivity implements ControlVi
     ViewPager mViewPager;
     Button cameraButton, nextPhotoButton, prevPhotoButton, backButton;
     String position;
+    CameraButtonHandler camButtonHandler = new CameraButtonHandler(this);
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -32,7 +41,7 @@ public class DetailedPhotoActivity extends FragmentActivity implements ControlVi
         mViewPager.setAdapter(mDetailedPhotoPagerAdapter);
 
 
-        cameraButton = Common.setupCameraButton(this);
+        cameraButton = camButtonHandler.setupCameraButton();
 //        setupBackButton();
         setupNextPhotoButton();
         setupPrevPhotoButton();
@@ -75,6 +84,11 @@ public class DetailedPhotoActivity extends FragmentActivity implements ControlVi
         nextPhotoButton.setVisibility(visibiltiy);
         prevPhotoButton.setVisibility(visibiltiy);
         cameraButton.setVisibility(visibiltiy);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        camButtonHandler.onActivityResult(requestCode, resultCode, data);
+        mViewPager.setAdapter(mDetailedPhotoPagerAdapter);
     }
 }
 

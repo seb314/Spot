@@ -1,10 +1,12 @@
 package nrdzs.cs465.illinois.edu.spot;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.util.HashMap;
@@ -23,6 +25,8 @@ public class PhotoGallery extends FragmentActivity {
     ImageButton[] buttonsAsArray = new ImageButton[3];
     Map<String, ImageButton> buttonsByName = new HashMap<>();
     Map<ImageButton, String> buttonNames = new HashMap<>();
+    Button cameraButton, nextPhotoButton, prevPhotoButton;
+    CameraButtonHandler cameraButtonHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +53,33 @@ public class PhotoGallery extends FragmentActivity {
 
         updateButtonVisibilities();
 
+        cameraButtonHandler = new CameraButtonHandler(this);
+        cameraButton = cameraButtonHandler.setupCameraButton();
+
+        setupNextPhotoButton();
+        setupPrevPhotoButton();
 
         Common.makeFullScreen(this);
+    }
+
+    private void setupNextPhotoButton(){
+        nextPhotoButton = Common.setupButton(this, R.id.next_button, new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1, true); //getItem(-1) for previous
+            }
+        });
+    }
+
+    private void setupPrevPhotoButton(){
+        prevPhotoButton = Common.setupButton(this, R.id.prev_button, new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                viewPager.setCurrentItem(viewPager.getCurrentItem() - 1, true); //getItem(-1) for previous
+            }
+        });
     }
 
     private void setupButtonOnclicklisteners(Set<ImageButton> buttons) {
@@ -91,5 +120,9 @@ public class PhotoGallery extends FragmentActivity {
         viewPager.setAdapter(adapter);
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        cameraButtonHandler.onActivityResult(requestCode, resultCode, data);
+        setNewAdapter(selected_area);
+    }
 
 }

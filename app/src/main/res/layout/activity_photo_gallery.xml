@@ -1,38 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/blueSecondary"
     tools:context="nrdzs.cs465.illinois.edu.spot.PhotoGallery">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        android:background="@color/blueSecondary">
+
 
         <android.support.v4.view.ViewPager
             android:id="@+id/view_pager_slider"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/floor_plan_layout"
             >
 
         </android.support.v4.view.ViewPager>
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/camera_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_button"
+        android:text="@string/icon_camera"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/bluePrimary"/>
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:background="#00ffffff"
+
+        android:text="@string/icon_arrow_right"
+        android:textSize="50dp"
+        android:textColor="@color/bluePrimary"
+
+        app:layout_constraintBottom_toTopOf="@+id/floor_plan_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/camera_button" />
+
+    <Button
+        android:id="@+id/prev_button"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:background="#00ffffff"
+        android:text="@string/icon_arrow_left"
+        android:textSize="50dp"
+        android:textColor="@color/bluePrimary"
+
+        app:layout_constraintBottom_toTopOf="@+id/floor_plan_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/camera_button" />
+
 
     <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:id="@+id/floor_plan_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <ImageView
             android:id="@+id/background_img"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="180dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:src="@drawable/floorplan"
             />
 
@@ -74,4 +118,4 @@
 
     </android.support.constraint.ConstraintLayout>
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

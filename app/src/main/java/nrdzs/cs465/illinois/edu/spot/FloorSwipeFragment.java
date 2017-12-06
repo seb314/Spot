@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ import nrdzs.cs465.illinois.edu.spot.backend.Photo;
 public class FloorSwipeFragment  extends Fragment {
     public static final String INDEX = "index";
     private GlobalApplicationVaribles glob = GlobalApplicationVaribles.getInstance(getContext());
+    TextView title;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -56,6 +58,9 @@ public class FloorSwipeFragment  extends Fragment {
                 getContext().startActivity(launchDetailedView);
             }
         });
+
+        title = (TextView) rootView.findViewById(R.id.photo_detail_title);
+        title.setText(photo.getTitleText());
 
         return rootView;
     }

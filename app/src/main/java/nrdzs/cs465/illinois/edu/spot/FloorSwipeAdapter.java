@@ -19,49 +19,25 @@ import android.util.Log;
 public class FloorSwipeAdapter extends FragmentStatePagerAdapter {
 
     private String position = "all";
-    private int[] curResources;
+    public static final String POSITION = "position";
 
     private Context ctx;
     private LayoutInflater layoutInflater;
     private GlobalApplicationVaribles glob = GlobalApplicationVaribles.getInstance(ctx);
 
-    public void init(String position){
-
-
-
-        if (position.equals("left")){
-            curResources = glob.getLeftImageResources();//leftImageResources;
-
-        }
-        else if (position.equals("center")){
-            curResources = glob.getMiddleImageResources(); //middleImageResources;
-        }
-        else if (position.equals("right")){
-            curResources = glob.getRightImageResources();//rightImageResources;
-        } else if (position.equals("all")) {
-
-            curResources = glob.getImageResources();//imageResources;
-        }
-
-        Log.i("size of array", Integer.toString(curResources.length));
-    }
 
     public FloorSwipeAdapter(FragmentManager fm){
-
         super(fm);
-        curResources = glob.getImageResources(); //imageResources;
-
     }
 
     public FloorSwipeAdapter(FragmentManager fm, String position){
         super(fm);
-        init(position);
         this.position = position;
     }
 
     @Override
     public int getCount() {
-        return curResources.length;
+        return glob.numPhotosForArea(position);
     }
 
     @Override
@@ -70,7 +46,7 @@ public class FloorSwipeAdapter extends FragmentStatePagerAdapter {
         Bundle args = new Bundle();
         // Our object is just an integer :-P
         args.putInt(FloorSwipeFragment.INDEX, i);
-        args.putIntArray(FloorSwipeFragment.CUR_RESOURCES, curResources);
+        args.putString(POSITION, position);
         fragment.setArguments(args);
         return fragment;
     }

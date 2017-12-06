@@ -15,13 +15,15 @@ import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.util.HashSet;
 import java.util.Set;
 
+import nrdzs.cs465.illinois.edu.spot.backend.Photo;
+
 // Instances of this class are fragments representing a single
 // object in our collection.
 public class DetailedPhotoFragment extends Fragment {
-    public static final String PHOTO_RESOURCE = "photo_resource";
     private TextView title;
     private SubsamplingScaleImageView photoView;
     private Set<ControlVisibilitySetter> controlVisibiltiySetters = new HashSet<>();
+    private GlobalApplicationVaribles glob;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -35,15 +37,19 @@ public class DetailedPhotoFragment extends Fragment {
                 (SubsamplingScaleImageView) rootView.findViewById(R.id.detailed_photo_view);
 
         Bundle args = getArguments();
-        int imageResource = args.getInt(PHOTO_RESOURCE);
-        String titleText = getTitleForResource(imageResource);
+        String area = args.getString(FloorSwipeAdapter.POSITION);
+        int index = args.getInt(FloorSwipeFragment.INDEX);
+        glob = GlobalApplicationVaribles.getInstance(getContext());
+        Photo photo = glob.getPhotoForAreaAndIndex(area, index);
+
+        String titleText = photo.getTitleText();
 
         photoView.setMaximumDpi(160);
         photoView.setMinimumScaleType(SubsamplingScaleImageView.SCALE_TYPE_CENTER_CROP);
         photoView.setMaxScale(5); // try to allow more zooming
         photoView.setMinimumDpi(25); // try to allow more zooming
 
-        photoView.setImage(ImageSource.resource(imageResource));
+        photoView.setImage(ImageSource.uri(photo.getPath().getPath()));
 
 ;
 

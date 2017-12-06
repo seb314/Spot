@@ -9,14 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import nrdzs.cs465.illinois.edu.spot.backend.Photo;
+
 /**
  * Created by sebastian on 28.11.17.
  */
 
 public class FloorSwipeFragment  extends Fragment {
     public static final String INDEX = "index";
-    public static final String CUR_RESOURCES = "cur_resources";
-    private int[] curResources;
+    private GlobalApplicationVaribles glob = GlobalApplicationVaribles.getInstance(getContext());
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -27,19 +33,22 @@ public class FloorSwipeFragment  extends Fragment {
                 R.layout.swipe_layout_zuyi, container, false);
         Bundle args = getArguments();
         final int index = args.getInt(INDEX);
-        curResources = args.getIntArray(CUR_RESOURCES);
+        final String position = args.getString(FloorSwipeAdapter.POSITION);
+
+        Photo photo = glob.getPhotoForAreaAndIndex(position, index);
 
         ImageView imageView = rootView.findViewById(R.id.image_view_all);
         int reqHeight = 300;//imageView.getHeight();
         int reqWidth = 200;//imageView.getWidth();
 
-        imageView.setImageBitmap(Common.decodeSampledBitmapFromResource(getResources(), curResources[index], reqWidth, reqHeight));
+        imageView.setImageBitmap(Common.decodeSampledBitmapFromURL(photo.getPath(), reqWidth, reqHeight));
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent launchDetailedView = new Intent(getContext(), DetailedPhotoActivity.class);
-                launchDetailedView.putExtra(CUR_RESOURCES, curResources);
+                launchDetailedView.putExtra(FloorSwipeAdapter.POSITION, position);
+                launchDetailedView.putExtra(INDEX, index);
                 getContext().startActivity(launchDetailedView);
             }
         });

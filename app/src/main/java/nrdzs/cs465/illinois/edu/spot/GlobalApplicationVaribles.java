@@ -23,10 +23,10 @@ public class GlobalApplicationVaribles{
 
     private Photo[] allHardcodedPhotos = {
             new Photo(R.drawable.grainger_image_1, "left", "Dec 05 2017 10:11:52.454 CDT"),
-            new Photo(R.drawable.grainger_image_2, "center", "Dec 05 2017 18:11:52.454 CDT"),
+            new Photo(R.drawable.grainger_image_2, "right", "Dec 05 2017 18:11:52.454 CDT"),
             new Photo(R.drawable.grainger_image_3, "center", "Dec 05 2017 09:11:52.454 CDT"),
             new Photo(R.drawable.grainger_image_4, "center", "Dec 05 2017 13:11:52.454 CDT"),
-            new Photo(R.drawable.grainger_image_5, "right", "Dec 05 2017 15:11:52.454 CDT"),
+            new Photo(R.drawable.grainger_image_5, "center", "Dec 05 2017 15:11:52.454 CDT"),
     };
 
     private Context ctx;

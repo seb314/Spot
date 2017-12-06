@@ -22,11 +22,11 @@ public class GlobalApplicationVaribles{
     private Map<String, Set<Photo>> imagesForAreas = new HashMap<>();
 
     private Photo[] allHardcodedPhotos = {
-            new Photo("grainger_image_1", "left", "Nov 05 2017 10:11:52.454 CDT"),
-            new Photo("grainger_image_2", "center", "Nov 05 2017 18:11:52.454 CDT"),
-            new Photo("grainger_image_3", "center", "Nov 05 2017 09:11:52.454 CDT"),
-            new Photo("grainger_image_4", "center", "Nov 05 2017 13:11:52.454 CDT"),
-            new Photo("grainger_image_5", "right", "Nov 05 2017 15:11:52.454 CDT"),
+            new Photo(R.drawable.grainger_image_1, "left", "Nov 05 2017 10:11:52.454 CDT"),
+            new Photo(R.drawable.grainger_image_2, "center", "Nov 05 2017 18:11:52.454 CDT"),
+            new Photo(R.drawable.grainger_image_3, "center", "Nov 05 2017 09:11:52.454 CDT"),
+            new Photo(R.drawable.grainger_image_4, "center", "Nov 05 2017 13:11:52.454 CDT"),
+            new Photo(R.drawable.grainger_image_5, "right", "Nov 05 2017 15:11:52.454 CDT"),
     };
 
     private Context ctx;

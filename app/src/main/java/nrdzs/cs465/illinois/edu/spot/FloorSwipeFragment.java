@@ -41,7 +41,11 @@ public class FloorSwipeFragment  extends Fragment {
         int reqHeight = 300;//imageView.getHeight();
         int reqWidth = 200;//imageView.getWidth();
 
-        imageView.setImageBitmap(Common.decodeSampledBitmapFromURL(photo.getPath(), reqWidth, reqHeight));
+        if(photo.isResourceBased()){
+            imageView.setImageBitmap(Common.decodeSampledBitmapFromResource(getResources(), photo.getResource(), reqWidth, reqHeight));
+        } else {
+            imageView.setImageBitmap(Common.decodeSampledBitmapFromURL(photo.getPath(), reqWidth, reqHeight));
+        }
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override

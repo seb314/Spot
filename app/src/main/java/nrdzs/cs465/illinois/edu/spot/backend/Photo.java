@@ -3,7 +3,6 @@ package nrdzs.cs465.illinois.edu.spot.backend;
 import android.support.annotation.NonNull;
 
 import java.net.URL;
-import java.time.Instant;
 import java.util.Date;
 
 import nrdzs.cs465.illinois.edu.spot.Common;
@@ -13,18 +12,27 @@ import nrdzs.cs465.illinois.edu.spot.Common;
  */
 
 public class Photo implements Comparable<Photo>{
-    private URL path;
+    private String path;
+    private int resource;
     private long timestamp;
     private String location;
+    private Boolean isResourceBased;
 
-    public Photo(URL url, String location, long timestamp){
-        this.path = url;
+    public Photo(String absolutePath, String location, long timestamp){
+        this.path = absolutePath;
         this.location = location;
         this.timestamp = timestamp;
+        isResourceBased = false;
     }
 
-    public Photo(String urlInDrawableNodpi, String location, String timestampString){
-        this(Common.getPathInDrawableNodpi(urlInDrawableNodpi),
+    public Photo(int resource, String location, long timestamp){
+        this.resource = resource;
+        this.location = location;
+        this.timestamp = timestamp;
+        isResourceBased = true;
+    }
+    public Photo(int resource, String location, String timestampString){
+        this(resource,
                 location,
                 Common.epochMillisecsFromDateTimeString(timestampString)
                 );
@@ -39,8 +47,16 @@ public class Photo implements Comparable<Photo>{
         return location;
     }
 
-    public URL getPath(){
+    public String getPath(){
         return path;
+    }
+
+    public int getResource(){
+        return resource;
+    }
+
+    public boolean isResourceBased(){
+        return isResourceBased;
     }
 
     public String getTitleText(){

@@ -134,33 +134,38 @@ public class Common {
         return inSampleSize;
     }
 
-    public static Bitmap decodeSampledBitmapFromURL(URL path,
+    public static Bitmap decodeSampledBitmapFromURL(String path,
                                                     int reqWidth, int reqHeight) {
 
         // First decode with inJustDecodeBounds=true to check dimensions
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(path.getPath(), options);
+        BitmapFactory.decodeFile(path, options);
 
         // Calculate inSampleSize
         options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
 
         // Decode bitmap with inSampleSize set
         options.inJustDecodeBounds = false;
-        return BitmapFactory.decodeFile(path.getPath(), options);
+        return BitmapFactory.decodeFile(path, options);
     }
 
-    public static URL getPath(String relativePath){
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        URL url = classLoader.getResource(relativePath);
-        return url;
+    public static Bitmap decodeSampledBitmapFromResource(Resources res, int resource,
+                                                    int reqWidth, int reqHeight) {
+
+        // First decode with inJustDecodeBounds=true to check dimensions
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeResource(res, resource, options);
+
+        // Calculate inSampleSize
+        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
+
+        // Decode bitmap with inSampleSize set
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeResource(res, resource, options);
     }
 
-    public static URL getPathInDrawableNodpi(String relativePath){
-        Uri otherPath = Uri.parse("android.resource://com.segf4ult.test/drawable/"+relativePath);
-        File f = File.
-        return null;
-    }
 
     /**
      *

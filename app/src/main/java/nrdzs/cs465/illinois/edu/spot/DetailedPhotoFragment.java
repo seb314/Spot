@@ -49,7 +49,11 @@ public class DetailedPhotoFragment extends Fragment {
         photoView.setMaxScale(5); // try to allow more zooming
         photoView.setMinimumDpi(25); // try to allow more zooming
 
-        photoView.setImage(ImageSource.uri(photo.getPath().getPath()));
+        if(photo.isResourceBased()){
+            photoView.setImage(ImageSource.resource(photo.getResource()));
+        } else {
+            photoView.setImage(ImageSource.uri(photo.getPath()));
+        }
 
 ;
 

@@ -2,17 +2,33 @@ package nrdzs.cs465.illinois.edu.spot;
 
 
 import android.content.Context;
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import nrdzs.cs465.illinois.edu.spot.backend.Photo;
 
 /**
  * Created by zuyi chen on 12/5/2017.
  */
 
 public class GlobalApplicationVaribles{
-    private int [] imageResources;
+    private Map<String, Set<Photo>> imagesForAreas = new HashMap<>();
 
-    private int [] leftImageResources;
-    private int [] middleImageResources;
-    private int [] rightImageResources;
+    private Photo[] allHardcodedPhotos = {
+            new Photo(R.drawable.grainger_image_1, "left", "Dec 05 2017 10:11:52.454 CDT"),
+            new Photo(R.drawable.grainger_image_2, "center", "Dec 05 2017 18:11:52.454 CDT"),
+            new Photo(R.drawable.grainger_image_3, "center", "Dec 05 2017 09:11:52.454 CDT"),
+            new Photo(R.drawable.grainger_image_4, "center", "Dec 05 2017 13:11:52.454 CDT"),
+            new Photo(R.drawable.grainger_image_5, "right", "Dec 05 2017 15:11:52.454 CDT"),
+    };
+
     private Context ctx;
 
     private static GlobalApplicationVaribles instance;
@@ -22,63 +38,40 @@ public class GlobalApplicationVaribles{
     };
 
     public void initVariables(){
-        this.imageResources = new int[] {R.drawable.grainger_image_1, R.drawable.grainger_image_2,
-                R.drawable.grainger_image_3, R.drawable.grainger_image_4, R.drawable.grainger_image_5};
-
-        this.leftImageResources = new int [] {R.drawable.grainger_image_1};
-
-        this.middleImageResources = new int [] {R.drawable.grainger_image_3, R.drawable.grainger_image_4,
-                R.drawable.grainger_image_5};
-
-        this.rightImageResources = new int[]{R.drawable.grainger_image_2};
-
-    }
-
-    public void addMiddleResource(){
-        int length = this.middleImageResources.length;
-        int [] newArr = new int [length+1];
-        for (int i=1; i<length+1; i++){
-            newArr[i] = this.middleImageResources[i-1];
+        for(int i = 0; i < allHardcodedPhotos.length; i++){
+            Photo p = allHardcodedPhotos[i];
+            String area = p.getLocation();
+            if (!imagesForAreas.containsKey(area)){
+                imagesForAreas.put(area, new HashSet<Photo>());
+            }
+            imagesForAreas.get(area).add(p);
+            if (!imagesForAreas.containsKey("all")){
+                imagesForAreas.put("all", new HashSet<Photo>());
+            }
+            imagesForAreas.get("all").add(p);
         }
-        newArr[0] = R.drawable.spot_mark;
-        this.middleImageResources = newArr;
     }
 
-    public void addRightResource(){
-        int length = this.rightImageResources.length;
-        int [] newArr = new int [length+1];
-        for (int i=1; i<length+1; i++){
-            newArr[i] = this.rightImageResources[i-1];
-        }
-        newArr[0] = R.drawable.spot_mark;
-        this.rightImageResources = newArr;
+
+    public void addPhoto(Photo photo){
+        imagesForAreas.get(photo.getLocation()).add(photo);
     }
 
-    public void addLeftResource(){
-        int length = this.leftImageResources.length;
-        int [] newArr = new int [length+1];
-        for (int i=1; i<length+1; i++){
-            newArr[i] = this.leftImageResources[i-1];
-        }
-        newArr[0] = R.drawable.spot_mark;
-        this.leftImageResources = newArr;
+
+    public Set<Photo> getPhotosForArea(String area){
+        return new HashSet<>(imagesForAreas.get(area));
     }
 
-    public int[] getImageResources(){
-        return instance.imageResources;
+    public Photo getPhotoForAreaAndIndex(String area, int index){
+        List<Photo> photosForArea = new ArrayList(getPhotosForArea(area));
+        Collections.sort(photosForArea);
+        return photosForArea.get(index);
     }
 
-    public int[] getLeftImageResources(){
-        return instance.leftImageResources;
+    public int numPhotosForArea(String area){
+        return getPhotosForArea(area).size();
     }
 
-    public int[] getMiddleImageResources(){
-        return instance.middleImageResources;
-    }
-
-    public int [] getRightImageResources(){
-        return instance.rightImageResources;
-    }
 
     public static synchronized GlobalApplicationVaribles getInstance(Context ctx){
         if (instance==null){

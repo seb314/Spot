@@ -12,7 +12,7 @@ import android.widget.Spinner;
 
 public class ConfirmPhotoLocationActivity extends CustomActivity {
 
-    public final String USER_SELECTION = "USER_SELECTION";
+    public static final String USER_SELECTION = "USER_SELECTION";
     int selected_button; //0, 1, 2 for left, center, right
     ImageButton left, center, right;
     ImageButton[] buttonsAsArray = new ImageButton[3];
@@ -88,7 +88,7 @@ public class ConfirmPhotoLocationActivity extends CustomActivity {
             @Override
             public void onClick(View v) {
                 Intent data = new Intent();
-                data.putExtra(USER_SELECTION, Integer.toString(selected_button));
+                data.putExtra(USER_SELECTION, selected_button);
                 setResult(Activity.RESULT_OK, data);
                 finish();
             }

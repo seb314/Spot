@@ -1,5 +1,6 @@
 package nrdzs.cs465.illinois.edu.spot;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,11 +9,13 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 // Since this is an object collection, use a FragmentStatePagerAdapter,
 // and NOT a FragmentPagerAdapter.
 public class DetailedPhotoPagerAdapter extends FragmentStatePagerAdapter {
-    int[] curResources;
+    String area;
+    GlobalApplicationVaribles glob;
 
-    public DetailedPhotoPagerAdapter(FragmentManager fm, int[] curResources) {
+    public DetailedPhotoPagerAdapter(FragmentManager fm, String area, Context ctx) {
         super(fm);
-        this.curResources = curResources;
+        this.area = area;
+        this.glob = GlobalApplicationVaribles.getInstance(ctx);
     }
 
     @Override
@@ -20,14 +23,16 @@ public class DetailedPhotoPagerAdapter extends FragmentStatePagerAdapter {
         Fragment fragment = new DetailedPhotoFragment();
         Bundle args = new Bundle();
         // Our object is just an integer :-P
-        args.putInt(DetailedPhotoFragment.PHOTO_RESOURCE, curResources[i]);
+
+        args.putString(FloorSwipeAdapter.POSITION, area);
+        args.putInt(FloorSwipeFragment.INDEX, i);
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public int getCount() {
-        return curResources.length;
+        return glob.numPhotosForArea(area);
     }
 
     @Override

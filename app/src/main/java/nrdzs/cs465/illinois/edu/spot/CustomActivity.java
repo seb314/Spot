@@ -20,6 +20,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import nrdzs.cs465.illinois.edu.spot.backend.Photo;
+
 public class CustomActivity extends Activity {
     // constants
     static final int REQUEST_TAKE_PHOTO = 1;
@@ -88,21 +90,24 @@ public class CustomActivity extends Activity {
 
         else if(requestCode == REQUEST_PHOTO_LOCATION && resultCode == Activity.RESULT_OK){
             // load the photo location, save it as the mCurrentLocation
-            Log.d("SELECTION", data.getStringExtra("USER_SELECTION"));
-            mCurrentLocation = Integer.parseInt(data.getStringExtra("USER_SELECTION"));
-            switch(mCurrentLocation){
+            mCurrentLocation = data.getIntExtra(ConfirmPhotoLocationActivity.USER_SELECTION, 1);
+            String area;
+            switch (mCurrentLocation){
                 case 0:
-                    glob.addLeftResource();
+                    area = "left";
                     break;
-
                 case 1:
-                    glob.addMiddleResource();
+                    area = "center";
                     break;
-
                 case 2:
-                    glob.addRightResource();
+                    area = "right";
                     break;
+                default:
+                    area = "center";
             }
+            Photo photo = new Photo(mCurrentPhotoPath, area, new Date().getTime());
+            GlobalApplicationVaribles.getInstance(this).addPhoto(photo);
+
         }
 
     }

@@ -1,6 +1,7 @@
 package nrdzs.cs465.illinois.edu.spot;
 
 import android.content.Context;
+import android.media.ExifInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -49,14 +50,23 @@ public class DetailedPhotoFragment extends Fragment {
         photoView.setMaxScale(5); // try to allow more zooming
         photoView.setMinimumDpi(25); // try to allow more zooming
 
-        if(photo.isResourceBased()){
+        if (photo.isResourceBased()) {
             photoView.setImage(ImageSource.resource(photo.getResource()));
         } else {
             photoView.setImage(ImageSource.uri(photo.getPath()));
+
+            // orientation: doesn't work this way :-(
+            //try {
+            //    ExifInterface exif = new ExifInterface(photo.getPath());
+            //    float orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
+            //    photoView.setRotation(orientation);
+
+            //} catch (Exception e) {
+            //    Log.e("problem rotating image", "problem rotating image", e);
+            //}
         }
 
-;
-
+        ;
 
 
         //TODO set real tile once we have real photos
@@ -73,7 +83,7 @@ public class DetailedPhotoFragment extends Fragment {
         return rootView;
     }
 
-    private String getTitleForResource(int photoRescource){
+    private String getTitleForResource(int photoRescource) {
         /**
          * provides a shitty hardcoded mapping of photo's recouces to some string that represents at time
          *
@@ -83,23 +93,23 @@ public class DetailedPhotoFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Context a){
+    public void onAttach(Context a) {
         super.onAttach(a);
         controlVisibiltiySetters.add((ControlVisibilitySetter) a);
         //setControlAndTitleVisibility(View.VISIBLE); somehow this doesn't work
     }
 
-    private void toggleControlAndTitleVisibility(){
+    private void toggleControlAndTitleVisibility() {
         int newVisibiltiy = title.getVisibility() == View.GONE ? View.VISIBLE : View.GONE;
 
         setControlAndTitleVisibility(newVisibiltiy);
     }
 
-    private void setControlAndTitleVisibility(int newVisibility){
+    private void setControlAndTitleVisibility(int newVisibility) {
         title.setVisibility(newVisibility);
 
         // change the visibilty of the
-        for(ControlVisibilitySetter v: controlVisibiltiySetters){
+        for (ControlVisibilitySetter v : controlVisibiltiySetters) {
             v.setControlVisibiltiy(newVisibility);
         }
     }

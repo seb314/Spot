@@ -1,4 +1,4 @@
-package com.example.nsg.testspotserver;
+package nrdzs.cs465.illinois.edu.spot.server_utilities;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
